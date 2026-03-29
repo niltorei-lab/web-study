@@ -26,11 +26,16 @@ HTML / CSS / JavaScript の学習用として作成したWebページです。
 
 ## 📸 スクリーンショット
 
-### 通常表示
-![通常表示](./screenshot.png)
-
-### テーマ変更後
-![テーマ変更後](./screenshot2.png)
+<table>
+  <tr>
+    <td align="center"><strong>通常表示</strong></td>
+    <td align="center"><strong>テーマ変更後</strong></td>
+  </tr>
+  <tr>
+    <td><img src="./screenshot.png" width="100%"></td>
+    <td><img src="./screenshot2.png" width="100%"></td>
+  </tr>
+</table>
 
 ---
 
