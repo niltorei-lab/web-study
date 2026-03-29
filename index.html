@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>自己紹介ページ</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="card">
+    <header>
+       <!--ページのタイトル-->
+      <h1 class="title">はじめまして</h1>
+      <!--プロフィール画像-->
+      <img class="profile-image" src="profile.png" alt="プロフィール画像" />
+      <div class="button-group">
+        <!--画像の表示・非表示-->
+        <button id="toggle-image-button" class="action-button action-button-green">画像を非表示</button>
+        <!--画像のサイズを変える-->
+        <button id="resize-image-button" class="action-button">画像のサイズを小さくする</button>
+        <!--画像を切り替える-->
+        <button id="change-image-button" class="action-button">画像を切り替える</button>
+        <!--メッセージを強調する-->
+        <button id="toggle-highlight-button" class="action-button action-button-green">強調表示をON</button>
+        <!--ペー全体のテーマを切り替える-->
+        <button id="toggle-theme-button" class="action-button action-button-purple">テーマをON</button>
+        <!--ボックスを強調するボタン-->
+        <button id="toggle-box-style-button" class="action-button">ボックス協調をON</button>
+        <button id="toggle-image-frame-button" class="action-button">画像の枠線をON</button>
+      </div>
+
+      <!-- 自己紹介文 -->
+      <p class="highlight"><span class="marker">HTML</span>の勉強を始めました。</p>
+      <p id="message">少しずつWebページを作れるようになりたいです。</p> 
+      <button class="action-button" id="change-button">メッセージを変える</button>      
+      <!-- <button class="action-button" id="reset-button">元に戻す</button> -->
+    </header>
+    
+    <!--好きなもの-->
+    <section>
+      <h2 class = "section-title">好きなもの</h2>
+      <div class="section-box">
+        <ul>
+          <li>Coldrain</li>
+          <li>映画鑑賞</li>
+          <li>シュールレアリスム</li>
+        </ul>
+      </div>
+    </section>
+    <!--やってみたいこと-->
+    <section>     
+      <h2 class = "section-title">やってみたいこと</h2>
+      <div class="section-box">
+        <ul>
+          <li>Webアプリ開発</li>
+          <li>バイブコーディング</li>
+          <li>グラフィックデザイン</li>
+        </ul>
+      </div>
+    </section>
+    
+    <!--リンク-->
+    <section>     
+      <h2 class = "section-title>気になるサイト</h2>
+        <div class="section-box">
+         <p>
+           <a class="buttonlink" href="https://developer.mozilla.org/ja/" target="_blank">MDN Web Docsを見る</a>
+         </p>
+        </div>
+    </section>
+
+    <footer>
+      <p>HTMLとCSSを学習中です。</p>
+    </footer>  
+    <script src="script.js"></script>
+  </main> 
+</body>
+</html>
