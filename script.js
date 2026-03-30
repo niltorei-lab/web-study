@@ -1,8 +1,11 @@
-    //変えるボタン要素を取得
+    //紹介文を切り替えるボタン要素を取得
     const changeButton = document.getElementById("change-button");
+
+    //紹介文の上段のメッセージを取得
+    const introText = document.getElementById("intro-text");
     //元に戻すボタン要素を取得
     // const resetButton = document.getElementById("reset-button");
-    //メッセージ要素を取得
+    //紹介文の下段のメッセージを取得
     const message =document.getElementById("message");
 
     //画像を表示・非表示するボタンを取得
@@ -49,11 +52,15 @@
         
         if(!isChanged){
            changeButton.textContent = "元に戻す"
+           introText.innerHTML = '<span class="marker">Javascript</span>の練習も始めています。';
+           introText.style.color = "#1f3c88"  
            message.textContent = "Javascriptで文字を変えられました!"
            message.style.color = "#0066cc"  
            isChanged = true;
         }else{
-            changeButton.textContent = "メッセージを変える"
+            changeButton.textContent = "紹介文を切り替える"
+            introText.innerHTML = '<span class="marker">HTML</span>の練習も始めています。';
+            introText.style.color = "#333333"  
             message.textContent = "少しずつWebページをつくれるようになりたいです。"
             message.style.color = "black"
            isChanged = false;
