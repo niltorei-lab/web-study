@@ -1,0 +1,250 @@
+  /*ページ全体の設定*/
+  body {
+    font-family: sans-serif;
+    line-height: 1.8;
+    margin: 0;
+    padding: 40px 20px;
+    background-color: #f7f7f7;    
+    font-size: 16px;
+  }
+  
+  /*メインタイトル*/
+  h1 {
+    color: #1f3c88;
+    margin-bottom: 16px;
+    font-size: 48px;
+  }
+
+  /*セクション見出し*/
+  h2 {
+    color: #444444;
+    margin-top: 32px;
+    margin-bottom: 10px;
+    font-size: 24px;
+    border-left: 6px solid #f59e0b;
+    padding-left: 10px;
+  }
+  
+  /*段落*/
+  p{
+    margin-bottom: 12px;    
+  }
+
+  ul{
+    margin: 0;
+  }
+
+  a {
+    color: #0066cc;
+  }
+  
+  /*文字のハイライト*/
+  .highlight{
+    color: #333333;
+  }
+  
+  /*タイトルのカラー*/
+  .title{
+    color: orange
+  }
+  
+  /*セクションタイトルのカラー*/
+  .section-title{
+    color: #555
+  }
+  /*一部分だけのマーカー*/
+  .marker{
+    background-color: #fff3b0;
+    color: #1f3c88;
+    padding: 0 4px;
+    border-radius: 4px;
+  }
+  
+  /*全体を囲むカード*/
+  .card{
+    background-color: white;
+    padding: 24px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0,8);
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  /*ボタン風リンク*/
+  .buttonlink{
+    display: inline-block;
+    background-color: #0066cc;
+    color: white;
+    text-decoration: none;
+    padding: 10px 16px;
+    border-radius: 8px;
+  }
+  
+  /*ボタンのマウスホバー*/
+  .buttonlink:hover{
+    background-color: #004c99;
+  }
+
+  .section-box{
+    background-color: #f2f6ff;
+    padding: 16px;
+    border-radius: 10px;
+    margin-bottom: 10;
+  }
+
+  .section-box ul{
+    margin: 0;
+    padding-left: 20px;
+  }
+
+  .section-box p{
+    margin-bottom: 0;
+  }
+
+  .buttonlink{
+    width: 180px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+  }
+  
+  .profile-image{
+    width: 180px;
+    border-radius: 12px;
+    margin: 0 auto 20px;
+    display: block;
+  }
+
+  .small-image{
+    width: 120px;
+  }
+
+  header{
+    margin-bottom: 24px;
+  }
+
+  footer{
+    margin-top: 32px;
+    font-size: 14px;
+    color: #666;
+    text-align: center;
+  }
+  
+  /*ボタンの基本デザイン*/
+  .action-button{
+    background-color: #0066cc;
+    color: white;
+    border: none;
+    padding: 10px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    margin: 0;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.12);
+  }
+
+  /*マウスをボタンに乗せたとき*/
+  .action-button:hover{
+    background-color: #005bb0;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.2);
+  }
+  
+  /*ボタンがクリックされた時*/
+  .action-button:active{
+    transform: translateY(1px);
+  }
+
+  /*緑のボタン*/
+  .action-button-green{
+    background-color: #16a34a;
+  }
+  
+  .action-button-green:hover{
+    background-color: #15803d;
+  }
+  
+  /*紫のボタン*/
+  .action-button-purple{
+    background-color: #7c3aed;
+  }
+
+  .action-button-purple:hover{
+    background-color: #6d28d9;
+  }
+
+
+  .acvite-message{
+    color: "#0066cc";
+    background-color: #e6f2ff;
+    padding: 8px 12px;
+    border-radius: 8px;
+  }
+
+  .hidden{
+    display: none;
+  }
+
+  .highlight-mode{
+    color: #0b57d0;
+    background-color: #e8f0fe;
+    border: 2px solid #a8c7fa;
+    padding:  8px 12px;
+    border-radius: 8px;
+  }
+
+  .active-button{
+    background-color: #0b57d0;
+    box-shadow: 0 0 0 3px #cfe2ff;
+  }
+
+  .dark-mode{
+        background-color: #334155;
+        color: #f8fafc;
+    }
+
+  .dark-mode h1,
+  .dark-mode h2,
+  .dark-mode p,
+  .dark-mode li{
+    color: #f8fafc;
+  }
+
+  .dark-mode .section-box{
+    background-color: #334155;
+  }
+  .dark-mode .buttonlink{
+    background-color: #3b82f6;
+  }
+
+  .dark-mode footer p{
+    color: #f8fafc;
+  }
+
+  .box-emphasis{
+    border: 2px solid #93c5fd;
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.2);
+  }
+  
+  /*ボタンをまとめるグループ*/
+  .button-group{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
+    row-gap: 16px;
+    column-gap: 12px;
+    margin: 20px 0 24px;
+  }
+
+  .image-framed{
+    border: 4px solid #60a5fa;
+    box-shadow: 0 4px 12px rgba(96,165,250,0.3);
+  }
+
+  .message-button{
+    margin-top: 12px;
+  }
+
+  #message{
+    margin-bottom: 8px;
+  }
