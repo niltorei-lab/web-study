@@ -248,3 +248,17 @@
   #message{
     margin-bottom: 8px;
   }
+
+  /*紹介文エリア*/
+  .intro-area{    
+    margin-top: 16px;
+    padding-top: 8px;
+  }
+
+  #message{
+    margin-bottom: 8px;
+  }
+
+  .message-button{
+    margin-top: 8px;
+  }
