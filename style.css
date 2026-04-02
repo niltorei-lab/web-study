@@ -45,12 +45,17 @@
   
   /*タイトルのカラー*/
   .title{
-    color: orange
+    color: orange;
   }
   
-  /*セクションタイトルのカラー*/
+  section{
+    margin-top: 24px;
+  }
+
+  /*セクションタイトル*/
   .section-title{
-    color: #555
+    color: #555;
+    margin-bottom: 12px;
   }
   /*一部分だけのマーカー*/
   .marker{
