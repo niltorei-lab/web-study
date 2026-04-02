@@ -65,17 +65,6 @@
             message.style.color = "black"
            isChanged = false;
         }});
-        
-/*         message.textContent = "Javascriptで文字を変えられました!"
-        message.style.color = "#0066cc"
-        message.classList.add("active-message") */
-
-
-    //戻すボタン：クリックされたら文章をもとに戻す
-/*     resetButton.addEventListener("click",function(){
-        message.textContent = "少しずつWebページをつくれるようになりたいです。"
-        message.style.color = "black"
-        message.classList.remove("acative-message")}); */
 
     //ボタンをクリックしたらsmall-imageをつけ外しする
     resizeImageButton.addEventListener("click", function(){
