@@ -93,10 +93,10 @@
         message.classList.toggle("highlight-mode")
 
         if(message.classList.contains("highlight-mode")){
-            toggleHighlightBttuon.textContent = "強調表示をOFF";
+            toggleHighlightBttuon.textContent = "紹介文の強調を戻す";
             toggleHighlightBttuon.classList.add("active-button");
         }else{
-            toggleHighlightBttuon.textContent = "強調表示をON";
+            toggleHighlightBttuon.textContent = "紹介文を強調する";
             toggleHighlightBttuon.classList.remove("active-button");
         }
     })
@@ -120,9 +120,9 @@
         });
         
         if(sectionBoxes[0].classList.contains("box-emphasis")){
-            toggleBoxStyleButton.textContent = "ボックス強調をOFF";
+            toggleBoxStyleButton.textContent = "セクション強調ON";
         }else{
-            toggleBoxStyleButton.textContent = "ボックス強調をON";
+            toggleBoxStyleButton.textContent = "セクション強調OFF";
         }
     });
 
