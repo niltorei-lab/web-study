@@ -10,9 +10,9 @@
   
   /*メインタイトル*/
   h1 {
-    color: #1f3c88;
+    color: #e09500;
     margin-bottom: 16px;
-    font-size: 48px;
+    font-size: 40px;
   }
 
   /*セクション見出し*/
@@ -44,9 +44,9 @@
   }
   
   /*タイトルのカラー*/
-  .title{
+/*   .title{
     color: orange;
-  }
+  } */
   
   section{
     margin-top: 24px;
