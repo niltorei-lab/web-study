@@ -53,16 +53,14 @@
         if(!isChanged){
            changeButton.textContent = "元に戻す"
            introText.innerHTML = '<span class="marker">Javascript</span>の練習も始めています。';
-           introText.style.color = "#1f3c88"  
-           message.textContent = "Javascriptで文字を変えられました!"
-           message.style.color = "#0066cc"  
+           message.textContent = "JavaScriptを使って、ページに動きをつける練習も進めています。"
+           message.classList.add("message-changed");
            isChanged = true;
         }else{
             changeButton.textContent = "紹介文を切り替える"
             introText.innerHTML = '<span class="marker">HTML</span>の練習も始めています。';
-            introText.style.color = "#333333"  
             message.textContent = "少しずつWebページをつくれるようになりたいです。"
-            message.style.color = "black"
+            message.classList.remove("message-changed");
            isChanged = false;
         }});
 

@@ -114,7 +114,11 @@
   }
 
   .buttonlink{
-    width: 180px;
+    display: inline-block;
+    background-color: #0066cc;
+    color: white;
+    text-decoration: none;
+    padding: 10px 16px;
     border-radius: 12px;
     margin-bottom: 20px;
   }
@@ -213,6 +217,19 @@
         background-color: #334155;
         color: #f8fafc;
     }
+
+  body.dark-mode #intro-text,
+  body.dark-mode #message{
+      color: #f5f7ff;
+  }
+
+  .message-changed{
+    color: #1f3c88;
+  }
+
+  body.dark-mode #message.message-changed{
+    color: #f5f7ff;
+  }  
 
   .dark-mode h1,
   .dark-mode h2,
