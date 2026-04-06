@@ -52,8 +52,8 @@
         
         if(!isChanged){
            changeButton.textContent = "元に戻す"
-           introText.innerHTML = '<span class="marker">Javascript</span>の練習も始めています。';
-           message.textContent = "JavaScriptを使って、ページに動きをつける練習も進めています。"
+           introText.innerHTML = 'HTMLに加えて<span class="marker">Javascript</span>の学習も始めています。';
+           message.textContent = "ボタン操作や表示の切り替えなど、動きのあるページ作りを練習しています。"
            message.classList.add("message-changed");
            isChanged = true;
         }else{

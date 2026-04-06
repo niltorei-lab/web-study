@@ -43,11 +43,6 @@
     color: #333333;
   }
   
-  /*タイトルのカラー*/
-/*   .title{
-    color: orange;
-  } */
-  
   section{
     margin-top: 24px;
   }
@@ -188,7 +183,6 @@
     background-color: #6d28d9;
   }
 
-
   .acvite-message{
     color: "#0066cc";
     background-color: #e6f2ff;
@@ -218,8 +212,8 @@
         color: #f8fafc;
     }
 
-  body.dark-mode #intro-text,
-  body.dark-mode #message{
+  .dark-mode #intro-text,
+  .dark-mode #message{
       color: #f5f7ff;
   }
 
@@ -227,9 +221,15 @@
     color: #1f3c88;
   }
 
-  body.dark-mode #message.message-changed{
+  .dark-mode #message.message-changed{
     color: #f5f7ff;
   }  
+
+  .dark-mode .highlight-mode{
+    color: #f8fafc;
+    background-color: #1e3a5f;
+    border: 2px solid #60affa;
+  }
 
   .dark-mode h1,
   .dark-mode h2,
