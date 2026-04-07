@@ -65,7 +65,7 @@
     background-color: white;
     padding: 24px;
     border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0,8);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
     max-width: 800px;
     margin: 0 auto;
   }
@@ -77,7 +77,8 @@
     color: white;
     text-decoration: none;
     padding: 10px 16px;
-    border-radius: 8px;
+    border-radius: 12px;
+    margin-bottom: 20px;
   }
   
   /*ボタンのマウスホバー*/
@@ -108,16 +109,6 @@
     margin: 0;
   }
 
-  .buttonlink{
-    display: inline-block;
-    background-color: #0066cc;
-    color: white;
-    text-decoration: none;
-    padding: 10px 16px;
-    border-radius: 12px;
-    margin-bottom: 20px;
-  }
-  
   .profile-image{
     width: 180px;
     border-radius: 12px;
@@ -181,13 +172,6 @@
 
   .action-button-purple:hover{
     background-color: #6d28d9;
-  }
-
-  .acvite-message{
-    color: "#0066cc";
-    background-color: #e6f2ff;
-    padding: 8px 12px;
-    border-radius: 8px;
   }
 
   .hidden{
@@ -271,7 +255,7 @@
   }
 
   .message-button{
-    margin-top: 12px;
+    margin-top: 8px;
   }
 
   #message{
@@ -284,10 +268,3 @@
     padding-top: 8px;
   }
 
-  #message{
-    margin-bottom: 8px;
-  }
-
-  .message-button{
-    margin-top: 8px;
-  }

@@ -1,33 +1,36 @@
-    //紹介文を切り替えるボタン要素を取得
+    //紹介文を切り替えるボタン
     const changeButton = document.getElementById("change-button");
 
-    //紹介文の上段のメッセージを取得
+    //紹介文の上段
     const introText = document.getElementById("intro-text");
-    //元に戻すボタン要素を取得
-    // const resetButton = document.getElementById("reset-button");
-    //紹介文の下段のメッセージを取得
-    const message =document.getElementById("message");
+    
+    //紹介文の下段
+    const message = document.getElementById("message");
 
-    //画像を表示・非表示するボタンを取得
-    const toggleImagebutton = document.getElementById("toggle-image-button");
+    //画像の表示・非表示ボタン
+    const toggleImageButton = document.getElementById("toggle-image-button");
+    
     //プロフィール画像を取得
     const profileImage = document.querySelector(".profile-image");
     
-    //画像のサイズを変えるボタンを取得
+    //画像のサイズ変更ボタン
     const resizeImageButton = document.getElementById("resize-image-button");
 
-    //画像を切り替えるボタンを取得
+    //画像の切り替えボタン
     const changeImageButton = document.getElementById("change-image-button");
 
-    //強調表示を切り替えるボタンを取得
-    const toggleHighlightBttuon = document.getElementById("toggle-highlight-button");
+    //紹介文の強調表示の切り替えボタン
+    const toggleHighlightButton = document.getElementById("toggle-highlight-button");
 
-    //テーマを切り替えるボタンを取得
+    //テーマの切り替えボタン
     const toggleThemeButton = document.getElementById("toggle-theme-button");
+    
     //カード全体を取得
     const card = document.querySelector(".card");
+    
     //ボックス強調ボタンを取得
     const toggleBoxStyleButton = document.getElementById("toggle-box-style-button");
+    
     //section-boxをすべて取得
     const sectionBoxes = document.querySelectorAll(".section-box");
 
@@ -35,13 +38,13 @@
     const toggleImageFrameButton = document.getElementById("toggle-image-frame-button");
 
     //toggleボタン押下でhiddenのつけ外しをする
-    toggleImagebutton.addEventListener("click",function(){
+    toggleImageButton.addEventListener("click",function(){
         profileImage.classList.toggle("hidden");
 
         if(profileImage.classList.contains("hidden")){
-            toggleImagebutton.textContent = "画像を表示"
+            toggleImageButton.textContent = "画像を表示"
         }else{
-            toggleImagebutton.textContent = "画像を非表示"
+            toggleImageButton.textContent = "画像を非表示"
         }
     });
     
@@ -52,13 +55,13 @@
         
         if(!isChanged){
            changeButton.textContent = "元に戻す"
-           introText.innerHTML = 'HTMLに加えて<span class="marker">Javascript</span>の学習も始めています。';
-           message.textContent = "ボタン操作や表示の切り替えなど、動きのあるページ作りを練習しています。"
+           introText.innerHTML = 'HTMLに加えて、<span class="marker">JavaScript</span>の学習も始めています。';
+           message.textContent = "ボタン操作や表示の切り替えなど、動きのあるページ作りを学習しています。"
            message.classList.add("message-changed");
            isChanged = true;
         }else{
             changeButton.textContent = "紹介文を切り替える"
-            introText.innerHTML = '<span class="marker">HTML</span>の練習も始めています。';
+            introText.innerHTML = '<span class="marker">HTML</span>の学習を始めています。';
             message.textContent = "少しずつWebページをつくれるようになりたいです。"
             message.classList.remove("message-changed");
            isChanged = false;
@@ -87,15 +90,15 @@
     });
 
     //メッセージの強調表示を切り替える
-    toggleHighlightBttuon.addEventListener("click",function(){
+    toggleHighlightButton.addEventListener("click",function(){
         message.classList.toggle("highlight-mode")
 
         if(message.classList.contains("highlight-mode")){
-            toggleHighlightBttuon.textContent = "紹介文の強調を戻す";
-            toggleHighlightBttuon.classList.add("active-button");
+            toggleHighlightButton.textContent = "紹介文の強調を戻す";
+            toggleHighlightButton.classList.add("active-button");
         }else{
-            toggleHighlightBttuon.textContent = "紹介文を強調する";
-            toggleHighlightBttuon.classList.remove("active-button");
+            toggleHighlightButton.textContent = "紹介文を強調する";
+            toggleHighlightButton.classList.remove("active-button");
         }
     })
 
@@ -118,9 +121,9 @@
         });
         
         if(sectionBoxes[0].classList.contains("box-emphasis")){
-            toggleBoxStyleButton.textContent = "セクション強調ON";
-        }else{
             toggleBoxStyleButton.textContent = "セクション強調OFF";
+        }else{
+            toggleBoxStyleButton.textContent = "セクション強調ON";
         }
     });
 
