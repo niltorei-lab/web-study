@@ -42,32 +42,33 @@
         profileImage.classList.toggle("hidden");
 
         if(profileImage.classList.contains("hidden")){
-            toggleImageButton.textContent = "画像を表示"
+            toggleImageButton.textContent = "画像を表示";
         }else{
-            toggleImageButton.textContent = "画像を非表示"
+            toggleImageButton.textContent = "画像を非表示";
         }
     });
     
-    //今の状態を覚えておく変数
-    let isChanged =false;
-   //変えるボタン：クリックされたら文章を変える
-    changeButton.addEventListener("click",function(){
-        
+    //状態を管理する変数
+    let isChanged = false;
+
+    //ボタンのイベント処理
+   //紹介文の切り替え
+    changeButton.addEventListener("click",function(){        
         if(!isChanged){
-           changeButton.textContent = "元に戻す"
+           changeButton.textContent = "元に戻す";
            introText.innerHTML = 'HTMLに加えて、<span class="marker">JavaScript</span>の学習も始めています。';
-           message.textContent = "ボタン操作や表示の切り替えなど、動きのあるページ作りを学習しています。"
+           message.textContent = "ボタン操作や表示の切り替えなど、動きのあるページ作りを学習しています。";
            message.classList.add("message-changed");
            isChanged = true;
         }else{
-            changeButton.textContent = "紹介文を切り替える"
+            changeButton.textContent = "紹介文を切り替える";
             introText.innerHTML = '<span class="marker">HTML</span>の学習を始めています。';
-            message.textContent = "少しずつWebページをつくれるようになりたいです。"
+            message.textContent = "少しずつWebページをつくれるようになりたいです。";
             message.classList.remove("message-changed");
            isChanged = false;
-        }});
+    }});
 
-    //ボタンをクリックしたらsmall-imageをつけ外しする
+    //画像サイズの切り替え
     resizeImageButton.addEventListener("click", function(){
         profileImage.classList.toggle("small-image");
         
@@ -78,20 +79,20 @@
         }
     });
     
-    //ボタンをクリックしたら画像を切り替える
+    //プロフィール画像の切り替え
     changeImageButton.addEventListener("click",function(){
         if(profileImage.getAttribute("src") === "profile.png"){        
                 profileImage.setAttribute("src","profile2.jpg");
-                profileImage.setAttribute("alt","2枚目のプロフィール画像")
+                profileImage.setAttribute("alt","2枚目のプロフィール画像");
             }else{
                 profileImage.setAttribute("src","profile.png");
-                profileImage.setAttribute("alt","プロフィール画像")
+                profileImage.setAttribute("alt","プロフィール画像");
             }    
     });
 
-    //メッセージの強調表示を切り替える
+    //紹介文の強調表示の切り替え
     toggleHighlightButton.addEventListener("click",function(){
-        message.classList.toggle("highlight-mode")
+        message.classList.toggle("highlight-mode");
 
         if(message.classList.contains("highlight-mode")){
             toggleHighlightButton.textContent = "紹介文の強調を戻す";
@@ -100,21 +101,21 @@
             toggleHighlightButton.textContent = "紹介文を強調する";
             toggleHighlightButton.classList.remove("active-button");
         }
-    })
+    });
 
-    //ボタンをクリックしたらdark-modeをつけ外しする
+    //ダークモードの切り替え
     toggleThemeButton.addEventListener("click", function(){
         card.classList.toggle("dark-mode");
 
         if(card.classList.contains("dark-mode")){
-          toggleThemeButton.textContent = "テーマをOFF"
+          toggleThemeButton.textContent = "テーマをOFF";
         }else{
-          toggleThemeButton.textContent = "テーマをON"
+          toggleThemeButton.textContent = "テーマをON";
         }
         
     });
 
-    //ボタンをクリックしたら全てのsection-boxにbox-emphasisをつけ外しする
+    //セクションボックスの強調の切り替え
     toggleBoxStyleButton.addEventListener("click",function(){
         sectionBoxes.forEach(function(box){
             box.classList.toggle("box-emphasis");
@@ -127,14 +128,14 @@
         }
     });
 
-    //画像の枠線の切り替え
+    //プロフィール画像の枠線の切り替え
     toggleImageFrameButton.addEventListener("click", function(){
         const isFramed = profileImage.classList.toggle("image-framed");
 
         if(isFramed){
-            toggleImageFrameButton.textContent = "画像の枠線をOFF"
+            toggleImageFrameButton.textContent = "画像の枠線をOFF";
         }else{
-            toggleImageFrameButton.textContent = "画像の枠線をON"
+            toggleImageFrameButton.textContent = "画像の枠線をON";
         }
-    })
+    });
 
