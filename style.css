@@ -302,6 +302,7 @@
       margin: 0 auto 20px;
     }
 
+    /*スマホではボタンを1列表示にする*/
     .button-group{
       flex-direction: column;
       align-items: stretch;
@@ -313,12 +314,14 @@
       margin-right: auto;      
     }
     
+    /*紹介文のサイズ*/
     #intro-text,
     #message{
       font-size: 14px;
       line-height: 1.6;      
     }
 
+    /**紹介文の下の余白*/
     #message{
      margin-bottom: 10px;
     }
@@ -333,6 +336,7 @@
       padding-top: 4px;
     }
 
+    /*最初のセクションを少し下げる*/
     section:first-of-type{
       margin-top: 32px;
     }
