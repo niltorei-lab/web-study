@@ -302,6 +302,10 @@
       margin: 0 auto 20px;
     }
 
+    .profile-image.small-image{
+      width: 120px;
+    }
+
     /*スマホではボタンを1列表示にする*/
     .button-group{
       flex-direction: column;
