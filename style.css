@@ -241,6 +241,16 @@
     background-color: #004c99;
   }
 
+  /*学習ログボタン*/
+  .log-link{
+    display: inline-block;
+    margin-top: 12px;
+    margin-bottom: 0;
+    padding: 8px 14px;
+    border-radius: 8px;
+    font-size: 13px;  
+  }
+
   /*ダークモード*/
   .dark-mode{
         background-color: #334155;
