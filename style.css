@@ -369,3 +369,20 @@
       margin-top: 32px;
     }
   }
+
+  /*学習ログページのヘッダー*/
+  .log-header{
+    display: flex;
+    /* justify-content: space-between; */
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 8px;
+  }
+
+  /*学習ログの閉じるボタン*/
+  .log-toggle-button{
+    padding: 8px 14px;
+    font-size: 14px;
+    position: relative;
+    top: 10px;
+  }
