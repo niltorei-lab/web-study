@@ -47,7 +47,7 @@ toggleAllButton.addEventListener("click",function(){
 
     toggleLog20260402Button.textContent = "閉じる";
     toggleLog20260409Button.textContent = "閉じる";
-    toggleAllButton.textContent = "すべて閉じる";
+    toggleAllButton.textContent = "すべての記録を閉じる";
 
   }else{
     logContent20260402.classList.add("hidden");
@@ -55,6 +55,6 @@ toggleAllButton.addEventListener("click",function(){
 
     toggleLog20260402Button.textContent = "開く";
     toggleLog20260409Button.textContent = "開く";
-    toggleAllButton.textContent = "すべて開く";
+    toggleAllButton.textContent = "すべての記録を開く";
   }
 });
