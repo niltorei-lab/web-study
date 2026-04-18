@@ -29,7 +29,7 @@
     color: #1f3c88;
     margin-top: 24px;
     margin-bottom: 10px;
-    font-size: 20-x;
+    font-size: 20px;
   }
 
   /*段落*/
@@ -383,6 +383,15 @@
   .log-toggle-button{
     padding: 8px 14px;
     font-size: 14px;
-    position: relative;
-    top: 10px;
+  }
+
+  /*学習ログページのセクション*/
+  .log-entry{
+    margin-top: 16px;
+    margin-bottom: 16px;
+  }
+
+  .log-entry .section-title{
+    margin-top: 0px;
+    margin-bottom: 6px;
   }
