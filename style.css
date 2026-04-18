@@ -395,3 +395,11 @@
     margin-top: 0px;
     margin-bottom: 6px;
   }
+
+  /*学習ログの開閉ボタン*/
+  .log-controls{
+    display: flex;
+    gap: 12px;
+    margin-top: 12px;
+    flex-wrap: wrap;
+  }
