@@ -368,6 +368,20 @@
     section:first-of-type{
       margin-top: 32px;
     }
+
+    /*学習ログページの設定*/
+    .learning-log-page h1{
+      font-size: 28px;      
+    }
+
+    .learning-log-page .section-title{
+      font-size: 18px;
+    }
+
+    .learning-log-page .log-toggle-button{
+      padding: 6px 12px;
+      font-size: 13px;
+    }
   }
 
   /*学習ログページのヘッダー*/
@@ -403,3 +417,5 @@
     margin-top: 12px;
     flex-wrap: wrap;
   }
+
+ 
