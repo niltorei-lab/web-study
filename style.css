@@ -418,4 +418,14 @@
     flex-wrap: wrap;
   }
 
+  /*最新ログのタイトル強調*/
+  .latest-log .section-title{
+    color: #d88a00;
+   }
+
+   /*最新ログを強調*/
+  .latest-log .section-box{
+    border: 2px solid #93c5fd;
+  }
+
  
