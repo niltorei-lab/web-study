@@ -10,6 +10,12 @@ const toggleLog20260413Button = document.getElementById("toggle-log-2026-04-13")
 //20260413の学習記録
 const logContent20260413 = document.getElementById("log-content-2026-04-13");
 
+//すべての学習記録を取得
+const logEntries = document.querySelectorAll(".log-entry");
+
+//最新の学習記録を取得
+const latestLog = logEntries[logEntries.length-1];
+
 //学習記録の開閉ボタン
 const toggleAllButton = document.getElementById("toggle-all-button");
 
@@ -95,3 +101,6 @@ indexLink20260413.addEventListener("click", function(){
   }
   updateToggleAllBUttonText();
 });
+
+//最新の学習記録にlatest-logを付ける
+latestLog.classList.add('latest-log');
