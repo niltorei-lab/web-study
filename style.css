@@ -437,4 +437,9 @@
     border: 2px solid #93c5fd;
   }
 
+  /*最新の目次を強調*/
+  .latest-log-link{
+    color: #d88a00;
+  }
+
  
