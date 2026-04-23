@@ -17,10 +17,10 @@ const logEntries = document.querySelectorAll(".log-entry");
 const latestLog = logEntries[logEntries.length-1];
 
 //すべての目次を取得
-const logLnikEntries = document.querySelectorAll(".log-index-link");
+const logLinkEntries = document.querySelectorAll(".log-index-link");
 
 //最新の目次を取得
-const latastLogLink = logLnikEntries[logLnikEntries.length-1];
+const latestLogLink = logLinkEntries[logLinkEntries.length-1];
 
 
 //学習記録の開閉ボタン
@@ -45,7 +45,7 @@ function updateToggleAllButtonText(){
   }
 }
 
-//20260402の学習記録の表示非表示
+//20260406の学習記録の表示非表示
 toggleLog20260406Button.addEventListener("click",function(){
   logContent20260406.classList.toggle("hidden");
 
@@ -57,7 +57,7 @@ toggleLog20260406Button.addEventListener("click",function(){
   updateToggleAllButtonText();
 });
 
-//20260409の学習記録の表示非表示
+//20260413の学習記録の表示非表示
 toggleLog20260413Button.addEventListener("click",function(){
   logContent20260413.classList.toggle("hidden");
 
@@ -113,4 +113,4 @@ indexLink20260413.addEventListener("click", function(){
 latestLog.classList.add("latest-log");
 
 //最新の目次を強調
-latastLogLink.classList.add("latest-log-link");
+latestLogLink.classList.add("latest-log-link");

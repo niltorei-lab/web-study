@@ -248,7 +248,7 @@
     background-color: #004c99;
   }
 
-  /*学習ログボタン*/
+  /*学習ログリンク*/
   .log-link{
     display: inline-block;
     margin-top: 12px;
@@ -258,7 +258,7 @@
     font-size: 13px;  
   }
 
-  /*学習ログボタンのマウスホバー*/
+  /*学習ログリンクのマウスホバー*/
   .log-link:hover{
     background-color: #004c99;
     transform: translateY(-2px);
@@ -305,7 +305,63 @@
     color: #f8fafc;
   }
 
-  /*スマホ表示の設定*/
+  /*学習ログのヘッダー*/
+  .log-header{
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 8px;
+  }
+
+    /*学習ログのセクション*/
+  .log-entry{
+    margin-top: 16px;
+    margin-bottom: 16px;
+  }
+
+  .log-entry .section-title{
+    margin-top: 0px;
+    margin-bottom: 6px;
+  }
+
+  /*学習ログの目次設定*/
+  .log-index a{
+    font-size: 16px;
+  }
+
+  .log-index li{
+    margin-bottom: 8px;
+  }
+
+  /*学習記録の開閉*/
+  .log-controls{
+    display: flex;
+    gap: 12px;
+    margin-top: 12px;
+    flex-wrap: wrap;
+  }
+
+  .log-toggle-button{
+    padding: 8px 14px;
+    font-size: 14px;
+  }
+
+  /*最新記録のタイトル強調*/
+  .latest-log .section-title{
+    color: #d88a00;
+   }
+
+   /*最新記録の強調*/
+  .latest-log .section-box{
+    border: 2px solid #93c5fd;
+  }
+
+  /*最新目次を強調*/
+  .latest-log-link{
+    color: #d88a00;
+  }
+
+    /*スマホ表示の設定*/
   @media (max-width: 600px){
     body {
       padding: 20px 12px;
@@ -369,7 +425,7 @@
       margin-top: 32px;
     }
 
-    /*学習ログページの設定*/
+    /*学習ログの設定*/
     .learning-log-page h1{
       font-size: 28px;      
     }
@@ -382,64 +438,6 @@
       padding: 6px 12px;
       font-size: 13px;
     }
-  }
-
-  /*学習ログページのヘッダー*/
-  .log-header{
-    display: flex;
-    /* justify-content: space-between; */
-    align-items: center;
-    gap: 15px;
-    margin-bottom: 8px;
-  }
-
-  /*学習ログの閉じるボタン*/
-  .log-toggle-button{
-    padding: 8px 14px;
-    font-size: 14px;
-  }
-
-  /*学習ログページのセクション*/
-  .log-entry{
-    margin-top: 16px;
-    margin-bottom: 16px;
-  }
-
-  .log-entry .section-title{
-    margin-top: 0px;
-    margin-bottom: 6px;
-  }
-
-  /*目次の余白*/
-  .log-index a{
-    font-size: 16px;
-  }
-
-  .log-index li{
-    margin-bottom: 8px;
-  }
-
-  /*学習ログの開閉ボタン*/
-  .log-controls{
-    display: flex;
-    gap: 12px;
-    margin-top: 12px;
-    flex-wrap: wrap;
-  }
-
-  /*最新ログのタイトル強調*/
-  .latest-log .section-title{
-    color: #d88a00;
-   }
-
-   /*最新ログを強調*/
-  .latest-log .section-box{
-    border: 2px solid #93c5fd;
-  }
-
-  /*最新の目次を強調*/
-  .latest-log-link{
-    color: #d88a00;
   }
 
  
