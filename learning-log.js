@@ -4,11 +4,17 @@ const toggleLog20260406Button = document.getElementById("toggle-log-2026-04-06")
 //20260406の学習記録
 const logContent20260406 = document.getElementById("log-content-2026-04-06");
 
+//20260406のセクション
+const log20260406 = document.getElementById("log-2026-04-06");
+
 //20260413のボタン
 const toggleLog20260413Button = document.getElementById("toggle-log-2026-04-13");
 
 //20260413の学習記録
 const logContent20260413 = document.getElementById("log-content-2026-04-13");
+
+//20260413のセクション
+const log20260413 = document.getElementById("log-2026-04-13");
 
 //すべての学習記録を取得
 const logEntries = document.querySelectorAll(".log-entry");
@@ -53,6 +59,9 @@ toggleLog20260406Button.addEventListener("click",function(){
     toggleLog20260406Button.textContent = "開く";
   }else{
     toggleLog20260406Button.textContent = "閉じる";
+    log20260406.scrollIntoView({
+      behavior: 'smooth'
+    });
   }  
   updateToggleAllButtonText();
 });
@@ -65,6 +74,9 @@ toggleLog20260413Button.addEventListener("click",function(){
     toggleLog20260413Button.textContent = "開く";
   }else{
     toggleLog20260413Button.textContent = "閉じる";
+    log20260413.scrollIntoView({
+      behavior: 'smooth'
+    });
   } 
   updateToggleAllButtonText();
 });
