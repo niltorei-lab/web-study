@@ -1,20 +1,20 @@
 //20260406のボタン
 const toggleLog20260406Button = document.getElementById("toggle-log-2026-04-06");
 
-//20260406の学習記録
-const logContent20260406 = document.getElementById("log-content-2026-04-06");
-
 //20260406のセクション
-const log20260406 = document.getElementById("log-2026-04-06");
+const logSection20260406 = document.getElementById("logSection20260406");
+
+//20260406の学習記録
+const logContent20260406 = document.getElementById("logContent20260406");
 
 //20260413のボタン
 const toggleLog20260413Button = document.getElementById("toggle-log-2026-04-13");
 
-//20260413の学習記録
-const logContent20260413 = document.getElementById("log-content-2026-04-13");
-
 //20260413のセクション
-const log20260413 = document.getElementById("log-2026-04-13");
+const logSection20260413 = document.getElementById("logSection20260413");
+
+//20260413の学習記録
+const logContent20260413 = document.getElementById("logContent20260413");
 
 //すべての学習記録を取得
 const logEntries = document.querySelectorAll(".log-entry");
@@ -38,6 +38,31 @@ const indexLink20260406 = document.getElementById("index-link-2026-04-06");
 //20260413の学習記録の目次リンク
 const indexLink20260413 = document.getElementById("index-link-2026-04-13");
 
+//1週目の学習記録
+const weeklyLog20260406 = {
+  date: "2026-04-06",
+  done: ["HTML/CSS/JavaScriptの復習","自己紹介ページの調整","GitHubへのPush"] ,
+  learned: ["小さい修正でも見た目は大きく変わる","CSSの余白はどこで管理するかが大事","レスポンシブ対応では自然さを優先する"],
+  next:["学習記録のページの見た目を整える","必要な項目を少しずつ追加する"],
+  memo:"小さく作って、使いながら育てていく"
+};
+
+//2週目の学習記録
+const weeklyLog20260413 = {
+  date: "2026-04-13",
+  done: ["learning-log.htmlの作成","index.htmlとのリンク追加","ボタンデザインの追加"] ,
+  learned: ["ページ同士をリンクでつなげられる","静的ページでも少しずつ育てていける","共通のCSSを使うと見た目をそろえやすい"],
+  next:["学習ログを増やす形に変える","表示・非表示の機能を考える"],
+  memo:"まずは記録を増やせる形を作ることを優先する"
+};
+
+//学習記録
+const weeklyLogs = [
+  weeklyLog20260406,
+  weeklyLog20260413
+];
+
+
 //一括開閉ボタンの文言変更関数
 function updateToggleAllButtonText(){
   const allOpen =
@@ -59,7 +84,7 @@ toggleLog20260406Button.addEventListener("click",function(){
     toggleLog20260406Button.textContent = "開く";
   }else{
     toggleLog20260406Button.textContent = "閉じる";
-    log20260406.scrollIntoView({
+    logSection20260406.scrollIntoView({
       behavior: 'smooth'
     });
   }  
@@ -74,7 +99,7 @@ toggleLog20260413Button.addEventListener("click",function(){
     toggleLog20260413Button.textContent = "開く";
   }else{
     toggleLog20260413Button.textContent = "閉じる";
-    log20260413.scrollIntoView({
+    logSection20260413.scrollIntoView({
       behavior: 'smooth'
     });
   } 
@@ -112,7 +137,7 @@ indexLink20260406.addEventListener("click", function(){
   updateToggleAllButtonText();
 });
 
-//2026-04-06の目次クリック
+//2026-04-13の目次クリック
 indexLink20260413.addEventListener("click", function(){
   if(logContent20260413.classList.contains("hidden")){
     logContent20260413.classList.remove("hidden");
