@@ -71,72 +71,56 @@ const firstWeeklyLog = weeklyLogs[0];
 const secondWeeklyLog = weeklyLogs[1];
 
 //リスト表示関数
-function setListItems(list,ul){
+function setListItems(target,list){
    for(let i = 0; i < list.length; i++){
    const li = document.createElement("li");
    li.textContent = list[i];
-   ul.appendChild(li);
-  }
-}
+   target.appendChild(li);
+  };
+};
 
-//1週目の学習記録の日付取得
-const firstWeeklyLogDate = document.getElementById("firstWeeklyLogDate");
+//テキスト表示関数
+function setText(target,element){
+  target.textContent = element;
+};
 
-//１週目の学習記記録のタイトルをセット
-firstWeeklyLogDate.textContent = firstWeeklyLog.date + "の学習記録"
+//1週分の学習記録の表示関数
+function renderWeeklyLog(elements,weeklyLog){
+  //タイトルをセット
+  setText(elements.date,weeklyLog.date + "の学習記録");  
+  //やったことをセット
+  setListItems(elements.done,weeklyLog.done);
+  //学んだことをセット
+  setListItems(elements.learned,weeklyLog.learned);
+  //次になることをセット
+  setListItems(elements.next,weeklyLog.next);
+  //メモをセット
+  setText(elements.memo,weeklyLog.memo);  
+};
 
-//1週目のやったことを取得
-const firstWeeklyLogDone = document.getElementById("firstweeklyLogDone");
+//1週目の学習記録の表示先の要素
+const firstWeeklyLogElements = {
+  date: document.getElementById("firstWeeklyLogDate"),
+  done: document.getElementById("firstweeklyLogDone"),
+  learned: document.getElementById("firstWeeklyLogLearned"),
+  next: document.getElementById("firstWeeklyLogNext"),
+  memo: document.getElementById("firstWeeklyLogMemo")
+};
 
-//1週目のやったことをセット
-setListItems(firstWeeklyLog.done,firstWeeklyLogDone);
+//2週目の学習記録の表示先の要素
+const secondWeeklyLogElements = {
+  date: document.getElementById("secondWeeklyLogDate"),
+  done: document.getElementById("secondweeklyLogDone"),
+  learned: document.getElementById("secondWeeklyLogLearned"),
+  next: document.getElementById("secondWeeklyLogNext"),
+  memo: document.getElementById("secondWeeklyLogMemo")
+};
 
-//1週目の学んだこと
-const firstWeeklyLogLearned = document.getElementById("firstWeeklyLogLearned")
+//1週目の学習記録をセット
+renderWeeklyLog(firstWeeklyLogElements,firstWeeklyLog);
 
-//1週目の学んだことをセット
-setListItems(firstWeeklyLog.learned,firstWeeklyLogLearned);
-
-//1週目の次にやることを取得
-const firstWeeklyLogNext = document.getElementById("firstWeeklyLogNext")
-//1週目の次にやることをセット
-setListItems(firstWeeklyLog.next,firstWeeklyLogNext);
-
-//1週目のメモ取得
-const firstWeeklyLogMemo = document.getElementById("firstWeeklyLogMemo");
-
-//1週目のメモをセット
-firstWeeklyLogMemo.textContent = firstWeeklyLog.memo;
-
-//2週目の学習記録の日付取得
-const secondWeeklyLogDate = document.getElementById("secondWeeklyLogDate");
-
-//2週目の学習記記録のタイトルをセット
-secondWeeklyLogDate.textContent = secondWeeklyLog.date + "の学習記録"
-
-//2週目のやったことを取得
-const secondWeeklyLogDone = document.getElementById("secondweeklyLogDone");
-
-//2週目のやったことをセット
-setListItems(secondWeeklyLog.done,secondWeeklyLogDone);
-
-//2週目の学んだこと
-const secondWeeklyLogLearned = document.getElementById("secondWeeklyLogLearned")
-
-//2週目の学んだことをセット
-setListItems(secondWeeklyLog.learned,secondWeeklyLogLearned);
-
-//2週目の次にやることを取得
-const secondWeeklyLogNext = document.getElementById("secondWeeklyLogNext")
-//2週目の次にやることをセット
-setListItems(secondWeeklyLog.next,secondWeeklyLogNext);
-
-//2週目のメモ取得
-const secondWeeklyLogMemo = document.getElementById("secondWeeklyLogMemo");
-
-//2週目のメモをセット
-secondWeeklyLogMemo.textContent = secondWeeklyLog.memo;
-
+//2週目の学習記録をセット
+renderWeeklyLog(secondWeeklyLogElements,secondWeeklyLog);
 
 //一括開閉ボタンの文言変更関数
 function updateToggleAllButtonText(){
