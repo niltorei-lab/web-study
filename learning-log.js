@@ -1,20 +1,23 @@
 //20260406のボタン
 const toggleLog20260406Button = document.getElementById("toggle-log-2026-04-06");
-
 //20260406のセクション
 const logSection20260406 = document.getElementById("logSection20260406");
-
 //20260406の学習記録
 const logContent20260406 = document.getElementById("logContent20260406");
 
 //20260413のボタン
 const toggleLog20260413Button = document.getElementById("toggle-log-2026-04-13");
-
 //20260413のセクション
 const logSection20260413 = document.getElementById("logSection20260413");
-
 //20260413の学習記録
 const logContent20260413 = document.getElementById("logContent20260413");
+
+//20260420のボタン
+const toggleLog20260420Button = document.getElementById("toggle-log-2026-04-20");
+//20260420のセクション
+const logSection20260420 = document.getElementById("logSection20260420");
+//20260420の学習記録
+const logContent20260420 = document.getElementById("logContent20260420");
 
 //すべての学習記録を取得
 const logEntries = document.querySelectorAll(".log-entry");
@@ -33,9 +36,10 @@ const toggleAllButton = document.getElementById("toggle-all-button");
 
 //20260406学習記録の目次リンク
 const indexLink20260406 = document.getElementById("index-link-2026-04-06");
-
-//20260413の学習記録の目次リンク
+//20260413学習記録の目次リンク
 const indexLink20260413 = document.getElementById("index-link-2026-04-13");
+//20260420学習記録の目次リンク
+const indexLink20260420 = document.getElementById("index-link-2026-04-20");
 
 //1週目の学習記録
 const weeklyLog20260406 = {
@@ -55,14 +59,21 @@ const weeklyLog20260413 = {
   memo:"まずは記録を増やせる形を作ることを優先する"
 };
 
+//3週目の学習記録
+const weeklyLog20260420 = {
+  date: "2026-04-20",
+  done: ["最新の学習記録と目次の自動強調","開閉ボタンの押下時スクロール処理","学習記録をJSデータから画面に表示"] ,
+  learned: ["役割ごとに動きを設定する","JavaScripitのオブジェクトと配列の違い","個別に処理⇒関数化"],
+  next:["週ごとの表示記録をさらにまとめる","3週目の学習記録を追加する"],
+  memo:"見た目を整えるだけでなくデータの持ち方とその表示まで考えられた"
+}
+
 //学習記録
 const weeklyLogs = [
   weeklyLog20260406,
-  weeklyLog20260413
+  weeklyLog20260413,
+  weeklyLog20260420
 ];
-
-//学習記録の件数を取得
-const weeklyLogsCount = weeklyLogs.length;
 
 //1週目の記録を取得
 const firstWeeklyLog = weeklyLogs[0];
@@ -70,35 +81,10 @@ const firstWeeklyLog = weeklyLogs[0];
 //2週目の記録を取得
 const secondWeeklyLog = weeklyLogs[1];
 
-//リスト表示関数
-function setListItems(target,list){
-   for(let i = 0; i < list.length; i++){
-   const li = document.createElement("li");
-   li.textContent = list[i];
-   target.appendChild(li);
-  };
-};
+//3週目の記録を取得
+const thirdWeeklyLog = weeklyLogs[2];
 
-//テキスト表示関数
-function setText(target,element){
-  target.textContent = element;
-};
-
-//1週分の学習記録の表示関数
-function renderWeeklyLog(elements,weeklyLog){
-  //タイトルをセット
-  setText(elements.date,weeklyLog.date + "の学習記録");  
-  //やったことをセット
-  setListItems(elements.done,weeklyLog.done);
-  //学んだことをセット
-  setListItems(elements.learned,weeklyLog.learned);
-  //次になることをセット
-  setListItems(elements.next,weeklyLog.next);
-  //メモをセット
-  setText(elements.memo,weeklyLog.memo);  
-};
-
-//1週目の学習記録の表示先の要素
+//1週目の学習記録の表示先要素
 const firstWeeklyLogElements = {
   date: document.getElementById("firstWeeklyLogDate"),
   done: document.getElementById("firstweeklyLogDone"),
@@ -107,7 +93,7 @@ const firstWeeklyLogElements = {
   memo: document.getElementById("firstWeeklyLogMemo")
 };
 
-//2週目の学習記録の表示先の要素
+//2週目の学習記録の表示先要素
 const secondWeeklyLogElements = {
   date: document.getElementById("secondWeeklyLogDate"),
   done: document.getElementById("secondweeklyLogDone"),
@@ -116,17 +102,61 @@ const secondWeeklyLogElements = {
   memo: document.getElementById("secondWeeklyLogMemo")
 };
 
-//1週目の学習記録をセット
-renderWeeklyLog(firstWeeklyLogElements,firstWeeklyLog);
+//3週目の学習記録の表示要素
+const thirdWeeklyLogElements = {
+  date: document.getElementById("thirdWeeklyLogDate"),
+  done: document.getElementById("thirdweeklyLogDone"),
+  learned: document.getElementById("thirdWeeklyLogLearned"),
+  next: document.getElementById("thirdWeeklyLogNext"),
+  memo: document.getElementById("thirdWeeklyLogMemo")
+};
 
-//2週目の学習記録をセット
-renderWeeklyLog(secondWeeklyLogElements,secondWeeklyLog);
+//表示先要素
+const weeklyLogElements = [
+  firstWeeklyLogElements,
+  secondWeeklyLogElements,
+  thirdWeeklyLogElements
+];
+
+//リスト表示
+function setListItems(target,list){
+   for(let i = 0; i < list.length; i++){
+   const li = document.createElement("li");
+   li.textContent = list[i];
+   target.appendChild(li);
+  };
+};
+
+//テキスト表示
+function setText(target,element){
+  target.textContent = element;
+};
+
+//複数週の学習記録表示
+function renderWeeklyLogs(elements, weeklyLogs){
+  for (let i = 0; i < weeklyLogs.length; i++){
+      //タイトルをセット
+      setText(elements[i].date, weeklyLogs[i].date + "の学習記録");  
+      //やったことをセット
+      setListItems(elements[i].done, weeklyLogs[i].done);
+      //学んだことをセット
+      setListItems(elements[i].learned, weeklyLogs[i].learned);
+      //次にやることをセット
+      setListItems(elements[i].next, weeklyLogs[i].next);
+      //メモをセット
+      setText(elements[i].memo, weeklyLogs[i].memo);  
+  }
+};
+
+//学習記録をセット
+renderWeeklyLogs(weeklyLogElements,weeklyLogs);
 
 //一括開閉ボタンの文言変更関数
 function updateToggleAllButtonText(){
   const allOpen =
   !(logContent20260406.classList.contains("hidden")) &&
-  !(logContent20260413.classList.contains("hidden"));
+  !(logContent20260413.classList.contains("hidden")) &&
+  !(logContent20260420.classList.contains("hidden"));
 
   if(allOpen){
     toggleAllButton.textContent = "すべての記録を閉じる";
@@ -165,23 +195,43 @@ toggleLog20260413Button.addEventListener("click",function(){
   updateToggleAllButtonText();
 });
 
+//20260420の学習記録の表示非表示
+toggleLog20260420Button.addEventListener("click",function(){
+    logContent20260420.classList.toggle("hidden");
+
+    if(logContent20260420.classList.contains("hidden")){
+      toggleLog20260420Button.textContent = "開く";
+    }else{
+      toggleLog20260420Button.textContent = "閉じる";
+      logSection20260420.scrollIntoView({
+        behavior: 'smooth'
+    });
+  } 
+  updateToggleAllButtonText();
+});
+
 //学習記録の開閉
 toggleAllButton.addEventListener("click",function(){
   const allOpen =
   !(logContent20260406.classList.contains("hidden")) &&
-  !(logContent20260413.classList.contains("hidden"));
+  !(logContent20260413.classList.contains("hidden")) &&
+  !(logContent20260420.classList.contains("hidden"));
 
   if(allOpen){
     logContent20260406.classList.add("hidden");
     logContent20260413.classList.add("hidden");
+    logContent20260420.classList.add("hidden");
 
     toggleLog20260406Button.textContent = "開く";
     toggleLog20260413Button.textContent = "開く";
+    toggleLog20260420Button.textContent = "開く";
   }else{
     logContent20260406.classList.remove("hidden");
     logContent20260413.classList.remove("hidden");
+    logContent20260420.classList.remove("hidden");
 
     toggleLog20260406Button.textContent = "閉じる";
+    toggleLog20260413Button.textContent = "閉じる";
     toggleLog20260413Button.textContent = "閉じる";    
   }
   updateToggleAllButtonText(); 
@@ -201,6 +251,15 @@ indexLink20260413.addEventListener("click", function(){
   if(logContent20260413.classList.contains("hidden")){
     logContent20260413.classList.remove("hidden");
     toggleLog20260413Button.textContent = "閉じる";
+  }
+  updateToggleAllButtonText();
+});
+
+//2026-04-20の目次クリック
+indexLink20260420.addEventListener("click", function(){
+  if(logContent20260420.classList.contains("hidden")){
+    logContent20260420.classList.remove("hidden");
+    toggleLog20260420Button.textContent = "閉じる";
   }
   updateToggleAllButtonText();
 });
