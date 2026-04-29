@@ -132,6 +132,38 @@ const weeklyLogElements = [
   thirdWeeklyLogElements
 ];
 
+//main
+const main = document.querySelector("main");
+//セクション
+const section = document.createElement("section");
+section.classList.add("log-entry");
+section.id = "logSection20260406";
+
+//header
+const header = document.createElement("div");
+header.classList.add("log-header");
+
+//タイトル
+const title = document.createElement("h2");
+title.classList.add("section-title");
+title.id = "firstWeeklyLogDate";
+title.textContent = weeklyLog20260406.date + "の学習記録";
+
+//ボタン
+const button = document.createElement("button");
+button.classList.add("action-button", "log-toggle-button");
+button.id = "toggle-log-2026-04-06";
+button.textContent = "開く"
+
+//組み立て
+header.appendChild(title);
+header.appendChild(button);
+section.appendChild(header);
+
+//20260413セクション
+const secondSection = document.getElementById("logSection20260413");
+main.insertBefore(section,secondSection);
+
 //リスト表示
 function setListItems(target,list){
    for(let i = 0; i < list.length; i++){
