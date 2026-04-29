@@ -41,6 +41,20 @@ const indexLink20260413 = document.getElementById("index-link-2026-04-13");
 //20260420学習記録の目次リンク
 const indexLink20260420 = document.getElementById("index-link-2026-04-20");
 
+//学習記録のボタン
+const toggleLogButtons = [
+  toggleLog20260406Button,
+  toggleLog20260413Button,
+  toggleLog20260420Button
+];
+
+//学習記録のコンテンツ
+const logContents = [
+  logContent20260406,
+  logContent20260413,
+  logContent20260420
+];
+
 //1週目の学習記録
 const weeklyLog20260406 = {
   date: "2026-04-06",
@@ -151,12 +165,40 @@ function renderWeeklyLogs(elements, weeklyLogs){
 //学習記録をセット
 renderWeeklyLogs(weeklyLogElements,weeklyLogs);
 
+//学習記録の表示字非表示
+function toggleLog(button,logContent,logSection){
+  button.addEventListener("click",function(){
+  logContent.classList.toggle("hidden");
+
+  if(logContent.classList.contains("hidden")){
+    button.textContent = "開く";
+  }else{
+    button.textContent = "閉じる";
+    logSection.scrollIntoView({
+      behavior: 'smooth'
+    });
+  }  
+  updateToggleAllButtonText(logContents);
+  });
+}
+
+//20260406の学習記録の表示非表示
+toggleLog(toggleLog20260406Button,logContent20260406,logSection20260406);
+
+//20260413の学習記録の表示非表示
+toggleLog(toggleLog20260413Button,logContent20260413,logSection20260413);
+
+//20260420の学習記録の表示非表示
+toggleLog(toggleLog20260420Button,logContent20260420,logSection20260420);
+
 //一括開閉ボタンの文言変更関数
-function updateToggleAllButtonText(){
-  const allOpen =
-  !(logContent20260406.classList.contains("hidden")) &&
-  !(logContent20260413.classList.contains("hidden")) &&
-  !(logContent20260420.classList.contains("hidden"));
+function updateToggleAllButtonText(logContents){
+  let allOpen = true;
+  for(let i = 0; i < logContents.length; i++){
+    if(logContents[i].classList.contains("hidden")){
+        allOpen = false;
+    }        
+  }
 
   if(allOpen){
     toggleAllButton.textContent = "すべての記録を閉じる";
@@ -165,104 +207,52 @@ function updateToggleAllButtonText(){
   }
 }
 
-//20260406の学習記録の表示非表示
-toggleLog20260406Button.addEventListener("click",function(){
-  logContent20260406.classList.toggle("hidden");
+//学習記録の一括開閉関数
+function toggleAll(toggleLogButtons,logContents){
+  toggleAllButton.addEventListener("click",function(){
+    let allOpen = true;
 
-  if(logContent20260406.classList.contains("hidden")){
-    toggleLog20260406Button.textContent = "開く";
-  }else{
-    toggleLog20260406Button.textContent = "閉じる";
-    logSection20260406.scrollIntoView({
-      behavior: 'smooth'
-    });
-  }  
-  updateToggleAllButtonText();
-});
+    for(let i = 0; i < logContents.length; i++){
+      if(logContents[i].classList.contains("hidden")){
+        allOpen = false;
+      }        
+    }
 
-//20260413の学習記録の表示非表示
-toggleLog20260413Button.addEventListener("click",function(){
-  logContent20260413.classList.toggle("hidden");
-
-  if(logContent20260413.classList.contains("hidden")){
-    toggleLog20260413Button.textContent = "開く";
-  }else{
-    toggleLog20260413Button.textContent = "閉じる";
-    logSection20260413.scrollIntoView({
-      behavior: 'smooth'
-    });
-  } 
-  updateToggleAllButtonText();
-});
-
-//20260420の学習記録の表示非表示
-toggleLog20260420Button.addEventListener("click",function(){
-    logContent20260420.classList.toggle("hidden");
-
-    if(logContent20260420.classList.contains("hidden")){
-      toggleLog20260420Button.textContent = "開く";
+    if(allOpen){
+      for(let i = 0; i < logContents.length; i++){
+        logContents[i].classList.add("hidden");
+        toggleLogButtons[i].textContent = "開く"
+      }
     }else{
-      toggleLog20260420Button.textContent = "閉じる";
-      logSection20260420.scrollIntoView({
-        behavior: 'smooth'
-    });
-  } 
-  updateToggleAllButtonText();
-});
+      for(let i = 0; i < logContents.length; i++){
+        logContents[i].classList.remove("hidden");
+        toggleLogButtons[i].textContent = "閉じる"
+      }
+    }
+   updateToggleAllButtonText(logContents); 
+ });   
+};
 
-//学習記録の開閉
-toggleAllButton.addEventListener("click",function(){
-  const allOpen =
-  !(logContent20260406.classList.contains("hidden")) &&
-  !(logContent20260413.classList.contains("hidden")) &&
-  !(logContent20260420.classList.contains("hidden"));
+//学習記録の一括開閉
+toggleAll(toggleLogButtons,logContents);
 
-  if(allOpen){
-    logContent20260406.classList.add("hidden");
-    logContent20260413.classList.add("hidden");
-    logContent20260420.classList.add("hidden");
-
-    toggleLog20260406Button.textContent = "開く";
-    toggleLog20260413Button.textContent = "開く";
-    toggleLog20260420Button.textContent = "開く";
-  }else{
-    logContent20260406.classList.remove("hidden");
-    logContent20260413.classList.remove("hidden");
-    logContent20260420.classList.remove("hidden");
-
-    toggleLog20260406Button.textContent = "閉じる";
-    toggleLog20260413Button.textContent = "閉じる";
-    toggleLog20260413Button.textContent = "閉じる";    
-  }
-  updateToggleAllButtonText(); 
-});
+//目次クリック
+function indexLink(indexLink,logContent,button){
+  indexLink.addEventListener("click", function(){
+    if(logContent.classList.contains("hidden")){
+      logContent.classList.remove("hidden");
+      button.textContent = "閉じる";
+    }
+    updateToggleAllButtonText(logContents);
+  });
+}
 
 //2026-04-06目次クリック
-indexLink20260406.addEventListener("click", function(){
-  if(logContent20260406.classList.contains("hidden")){
-    logContent20260406.classList.remove("hidden");
-    toggleLog20260406Button.textContent = "閉じる";
-  }
-  updateToggleAllButtonText();
-});
-
-//2026-04-13の目次クリック
-indexLink20260413.addEventListener("click", function(){
-  if(logContent20260413.classList.contains("hidden")){
-    logContent20260413.classList.remove("hidden");
-    toggleLog20260413Button.textContent = "閉じる";
-  }
-  updateToggleAllButtonText();
-});
-
-//2026-04-20の目次クリック
-indexLink20260420.addEventListener("click", function(){
-  if(logContent20260420.classList.contains("hidden")){
-    logContent20260420.classList.remove("hidden");
-    toggleLog20260420Button.textContent = "閉じる";
-  }
-  updateToggleAllButtonText();
-});
+indexLink(indexLink20260406,logContent20260406,toggleLog20260406Button);
+//2026-04-13目次クリック
+indexLink(indexLink20260413,logContent20260413,toggleLog20260413Button);
+//2026-04-20目次クリック
+indexLink(indexLink20260420,logContent20260420,toggleLog20260420Button);
 
 //最新の学習記録を強調
 latestLog.classList.add("latest-log");
