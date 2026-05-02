@@ -20,16 +20,16 @@ const logSection20260420 = document.getElementById("logSection20260420");
 const logContent20260420 = document.getElementById("logContent20260420");
 
 //すべての学習記録を取得
-const logEntries = document.querySelectorAll(".log-entry");
+// const logEntries = document.querySelectorAll(".log-entry");
 
 //最新の学習記録を取得
-const latestLog = logEntries[logEntries.length-1];
+// const latestLog = logEntries[logEntries.length-1];
 
 //すべての目次を取得
-const logLinkEntries = document.querySelectorAll(".log-index-link");
+// const logLinkEntries = document.querySelectorAll(".log-index-link");
 
 //最新の目次を取得
-const latestLogLink = logLinkEntries[logLinkEntries.length-1];
+// const latestLogLink = logLinkEntries[logLinkEntries.length-1];
 
 //学習記録の開閉ボタン
 const toggleAllButton = document.getElementById("toggle-all-button");
@@ -41,19 +41,19 @@ const indexLink20260413 = document.getElementById("index-link-2026-04-13");
 //20260420学習記録の目次リンク
 const indexLink20260420 = document.getElementById("index-link-2026-04-20");
 
-//学習記録のボタン
-const toggleLogButtons = [
-  toggleLog20260406Button,
-  toggleLog20260413Button,
-  toggleLog20260420Button
-];
+// //学習記録のボタン
+// const toggleLogButtons = [
+//   toggleLog20260406Button,
+//   toggleLog20260413Button,
+//   toggleLog20260420Button
+// ];
 
-//学習記録のコンテンツ
-const logContents = [
-  logContent20260406,
-  logContent20260413,
-  logContent20260420
-];
+// //学習記録のコンテンツ
+// const logContents = [
+//   logContent20260406,
+//   logContent20260413,
+//   logContent20260420
+// ];
 
 //1週目の学習記録
 const weeklyLog20260406 = {
@@ -134,26 +134,27 @@ const weeklyLogElements = [
 
 //main
 const main = document.querySelector("main");
-//セクション
-const section = document.createElement("section");
-section.classList.add("log-entry");
-section.id = "logSection20260406";
 
-//header
-const header = document.createElement("div");
-header.classList.add("log-header");
+//1週目セクション
+const firstLogSection = document.createElement("section");
+firstLogSection.classList.add("log-entry");
+firstLogSection.id = "logSection20260406";
 
-//タイトル
-const title = document.createElement("h2");
-title.classList.add("section-title");
-title.id = "firstWeeklyLogDate";
-title.textContent = weeklyLog20260406.date + "の学習記録";
+//1週目header
+const firstLogHeader = document.createElement("div");
+firstLogHeader.classList.add("log-header");
 
-//ボタン
-const button = document.createElement("button");
-button.classList.add("action-button", "log-toggle-button");
-button.id = "toggle-log-2026-04-06";
-button.textContent = "開く"
+//1週目タイトル
+const firstLogTitle = document.createElement("h2");
+firstLogTitle.classList.add("section-title");
+firstLogTitle.id = "firstWeeklyLogDate";
+firstLogTitle.textContent = weeklyLog20260406.date + "の学習記録";
+
+//1週目ボタン
+const firstToggleButton = document.createElement("button");
+firstToggleButton.classList.add("action-button", "log-toggle-button");
+firstToggleButton.id = "toggle-log-2026-04-06";
+firstToggleButton.textContent = "開く"
 
 //1週目の学習記録
 const firstLogContent = document.createElement("div");
@@ -210,10 +211,177 @@ firstLogMemoSectionBox.classList.add("section-box");
 //1週目メモ
 const firstLogMemo = document.createElement("p");
 firstLogMemo.id = "firstWeeklyLogMemo";
-firstLogMemo.textContent = weeklyLog20260406.memo;
+setText(firstLogMemo,weeklyLog20260406.memo);
 
-//20260413セクション
-const secondSection = document.getElementById("logSection20260413");
+//2週目セクション
+const secondLogSection = document.createElement("section");
+secondLogSection.classList.add("log-entry");
+secondLogSection.id = "logSection20260413";
+
+//2週目header
+const secondLogHeader = document.createElement("div");
+secondLogHeader.classList.add("log-header");
+
+//2週目タイトル
+const secondLogTitle = document.createElement("h2");
+secondLogTitle.classList.add("section-title");
+secondLogTitle.id = "secondWeeklyLogDate";
+secondLogTitle.textContent = weeklyLog20260413.date + "の学習記録";
+
+//2週目ボタン
+const secondToggleButton = document.createElement("button");
+secondToggleButton.classList.add("action-button", "log-toggle-button");
+secondToggleButton.id = "toggle-log-2026-04-13";
+secondToggleButton.textContent = "開く"
+
+//2週目の学習記録
+const secondLogContent = document.createElement("div");
+secondLogContent.classList.add("log-content","hidden");
+secondLogContent.id = "logContent20260413";
+
+//2週目やったことタイトル
+const secondLogDoneTitle = document.createElement("h3");
+secondLogDoneTitle.textContent = "今週やったこと"
+
+//2週目やったことsection-box
+const secondLogSectionBox = document.createElement("div");
+secondLogSectionBox.classList.add("section-box");
+
+//2週目やったこと
+const secondLogDone = document.createElement("ul");
+secondLogDone.id = "secondWeeklyLogDone";
+setListItems(secondLogDone,weeklyLog20260413.done);
+
+//2週目学んだことタイトル
+const secondLogLearnedTitle = document.createElement("h3");
+secondLogLearnedTitle.textContent = "学んだこと";
+
+//2週目学んだことsection-box
+const secondLogLearnedSectionBox = document.createElement("div");
+secondLogLearnedSectionBox.classList.add("section-box");
+
+//2週目学んだこと
+const secondLogLearned = document.createElement("ul");
+secondLogLearned.id = "secondLogWeeklyLogLearned";
+setListItems(secondLogLearned,weeklyLog20260413.learned);
+
+//2週目次にやることタイトル
+const secondLogNextTitle = document.createElement("h3");
+secondLogNextTitle.textContent = "次にやること";
+
+//2週目次にやることsection-box
+const secondLogNextSectionBox = document.createElement("div");
+secondLogNextSectionBox.classList.add("section-box");
+
+//2週目次にやること
+const secondLogNext = document.createElement("ul");
+secondLogNext.id = "secondWeeklyLogNext";
+setListItems(secondLogNext,weeklyLog20260413.next);
+
+//2週目メモタイトル
+const secondLogMemoTitle = document.createElement("h3");
+secondLogMemoTitle.textContent = "メモ";
+
+//2週目メモsection-box
+const secondLogMemoSectionBox = document.createElement("div");
+secondLogMemoSectionBox.classList.add("section-box");
+
+//2週目メモ
+const secondLogMemo = document.createElement("p");
+secondLogMemo.id = "secondWeeklyLogMemo";
+setText(secondLogMemo,weeklyLog20260413.memo);
+
+//3週目セクション
+const thirdLogSection = document.createElement("section");
+thirdLogSection.classList.add("log-entry");
+thirdLogSection.id = "logSection20260420";
+
+//3週目header
+const thirdLogHeader = document.createElement("div");
+thirdLogHeader.classList.add("log-header");
+
+//3週目タイトル
+const thirdLogTitle = document.createElement("h2");
+thirdLogTitle.classList.add("section-title");
+thirdLogTitle.id = "thirdWeeklyLogDate";
+thirdLogTitle.textContent = weeklyLog20260420.date + "の学習記録";
+
+//3週目ボタン
+const thirdToggleButton = document.createElement("button");
+thirdToggleButton.classList.add("action-button", "log-toggle-button");
+thirdToggleButton.id = "toggle-log-2026-04-20";
+thirdToggleButton.textContent = "開く"
+
+//3週目の学習記録
+const thirdLogContent = document.createElement("div");
+thirdLogContent.classList.add("log-content","hidden");
+thirdLogContent.id = "logContent20260420";
+
+//3週目やったことタイトル
+const thirdLogDoneTitle = document.createElement("h3");
+thirdLogDoneTitle.textContent = "今週やったこと"
+
+//3週目やったことsection-box
+const thirdLogSectionBox = document.createElement("div");
+thirdLogSectionBox.classList.add("section-box");
+
+//3週目やったこと
+const thirdLogDone = document.createElement("ul");
+thirdLogDone.id = "thirdWeeklyLogDone";
+setListItems(thirdLogDone,weeklyLog20260420.done);
+
+//3週目学んだことタイトル
+const thirdLogLearnedTitle = document.createElement("h3");
+thirdLogLearnedTitle.textContent = "学んだこと";
+
+//3週目学んだことsection-box
+const thirdLogLearnedSectionBox = document.createElement("div");
+thirdLogLearnedSectionBox.classList.add("section-box");
+
+//3週目学んだこと
+const thirdLogLearned = document.createElement("ul");
+thirdLogLearned.id = "thirdLogWeeklyLogLearned";
+setListItems(thirdLogLearned,weeklyLog20260420.learned);
+
+//3週目次にやることタイトル
+const thirdLogNextTitle = document.createElement("h3");
+thirdLogNextTitle.textContent = "次にやること";
+
+//3週目次にやることsection-box
+const thirdLogNextSectionBox = document.createElement("div");
+thirdLogNextSectionBox.classList.add("section-box");
+
+//3週目次にやること
+const thirdLogNext = document.createElement("ul");
+thirdLogNext.id = "firstWeeklyLogNext";
+setListItems(thirdLogNext,weeklyLog20260420.next);
+
+//3週目メモタイトル
+const thirdLogMemoTitle = document.createElement("h3");
+thirdLogMemoTitle.textContent = "メモ";
+
+//3週目メモsection-box
+const thirdLogMemoSectionBox = document.createElement("div");
+thirdLogMemoSectionBox.classList.add("section-box");
+
+//3週目メモ
+const thirdLogMemo = document.createElement("p");
+thirdLogMemo.id = "thirdWeeklyLogMemo";
+setText(thirdLogMemo,weeklyLog20260420.memo);
+
+//学習記録のボタン
+const toggleLogButtons = [
+  firstToggleButton,
+  secondToggleButton,
+  thirdToggleButton
+];
+
+//学習記録のコンテンツ
+const logContents = [
+  firstLogContent,
+  secondLogContent,
+  thirdLogContent
+];
 
 //リスト表示
 function setListItems(target,list){
@@ -265,15 +433,6 @@ function toggleLog(button,logContent,logSection){
   });
 }
 
-//20260406の学習記録の表示非表示
-toggleLog(button,firstLogContent,section);
-
-//20260413の学習記録の表示非表示
-toggleLog(toggleLog20260413Button,logContent20260413,logSection20260413);
-
-//20260420の学習記録の表示非表示
-toggleLog(toggleLog20260420Button,logContent20260420,logSection20260420);
-
 //一括開閉ボタンの文言変更関数
 function updateToggleAllButtonText(logContents){
   let allOpen = true;
@@ -317,7 +476,7 @@ function toggleAll(toggleLogButtons,logContents){
 };
 
 //学習記録の一括開閉
-toggleAll(toggleLogButtons,logContents);
+// toggleAll(toggleLogButtons,logContents);
 
 //目次クリック
 function indexLink(indexLink,logContent,button){
@@ -331,11 +490,128 @@ function indexLink(indexLink,logContent,button){
 }
 
 //2026-04-06目次クリック
-indexLink(indexLink20260406,logContent20260406,toggleLog20260406Button);
+// indexLink(indexLink20260406,logContent20260406,toggleLog20260406Button);
 //2026-04-13目次クリック
-indexLink(indexLink20260413,logContent20260413,toggleLog20260413Button);
+// indexLink(indexLink20260413,logContent20260413,toggleLog20260413Button);
 //2026-04-20目次クリック
-indexLink(indexLink20260420,logContent20260420,toggleLog20260420Button);
+// indexLink(indexLink20260420,logContent20260420,toggleLog20260420Button);
+
+//最新の学習記録を強調
+// latestLog.classList.add("latest-log");
+
+//最新の目次を強調
+// latestLogLink.classList.add("latest-log-link");
+
+//HTML組み立て
+//1週目header
+firstLogHeader.appendChild(firstLogTitle);
+firstLogHeader.appendChild(firstToggleButton);
+firstLogSection.appendChild(firstLogHeader);
+
+//1週目やったこと
+firstLogSectionBox.appendChild(firstLogDone);
+firstLogContent.appendChild(firstLogDoneTitle);
+firstLogContent.appendChild(firstLogSectionBox);
+firstLogSection.appendChild(firstLogContent);
+
+//1週目学んだこと
+firstLogLearnedSectionBox.appendChild(firstLogLearned);
+firstLogContent.appendChild(firstLogLearnedTitle);
+firstLogContent.appendChild(firstLogLearnedSectionBox);
+firstLogSection.appendChild(firstLogContent);
+
+//1週目次にやること
+firstLogNextSectionBox.appendChild(firstLogNext);
+firstLogContent.appendChild(firstLogNextTitle);
+firstLogContent.appendChild(firstLogNextSectionBox);
+firstLogSection.appendChild(firstLogContent);
+
+//1週目メモ
+firstLogMemoSectionBox.appendChild(firstLogMemo);
+firstLogContent.appendChild(firstLogMemoTitle);
+firstLogContent.appendChild(firstLogMemoSectionBox);
+firstLogSection.appendChild(firstLogContent);
+
+//2週目header
+secondLogHeader.appendChild(secondLogTitle);
+secondLogHeader.appendChild(secondToggleButton);
+secondLogSection.appendChild(secondLogHeader);
+
+//2週目やったこと
+secondLogSectionBox.appendChild(secondLogDone);
+secondLogContent.appendChild(secondLogDoneTitle);
+secondLogContent.appendChild(secondLogSectionBox);
+secondLogSection.appendChild(secondLogContent);
+
+//2週目学んだこと
+secondLogLearnedSectionBox.appendChild(secondLogLearned);
+secondLogContent.appendChild(secondLogLearnedTitle);
+secondLogContent.appendChild(secondLogLearnedSectionBox);
+secondLogSection.appendChild(secondLogContent);
+
+//2週目次にやること
+secondLogNextSectionBox.appendChild(secondLogNext);
+secondLogContent.appendChild(secondLogNextTitle);
+secondLogContent.appendChild(secondLogNextSectionBox);
+secondLogSection.appendChild(secondLogContent);
+
+//2週目メモ
+secondLogMemoSectionBox.appendChild(secondLogMemo);
+secondLogContent.appendChild(secondLogMemoTitle);
+secondLogContent.appendChild(secondLogMemoSectionBox);
+secondLogSection.appendChild(secondLogContent);
+
+//3週目header
+thirdLogHeader.appendChild(thirdLogTitle);
+thirdLogHeader.appendChild(thirdToggleButton);
+thirdLogSection.appendChild(thirdLogHeader);
+
+//3週目やったこと
+thirdLogSectionBox.appendChild(thirdLogDone);
+thirdLogContent.appendChild(thirdLogDoneTitle);
+thirdLogContent.appendChild(thirdLogSectionBox);
+thirdLogSection.appendChild(thirdLogContent);
+
+//3週目学んだこと
+thirdLogLearnedSectionBox.appendChild(thirdLogLearned);
+thirdLogContent.appendChild(thirdLogLearnedTitle);
+thirdLogContent.appendChild(thirdLogLearnedSectionBox);
+thirdLogSection.appendChild(thirdLogContent);
+
+//3週目次にやること
+thirdLogNextSectionBox.appendChild(thirdLogNext);
+thirdLogContent.appendChild(thirdLogNextTitle);
+thirdLogContent.appendChild(thirdLogNextSectionBox);
+thirdLogSection.appendChild(thirdLogContent);
+
+//3週目メモ
+thirdLogMemoSectionBox.appendChild(thirdLogMemo);
+thirdLogContent.appendChild(thirdLogMemoTitle);
+thirdLogContent.appendChild(thirdLogMemoSectionBox);
+thirdLogSection.appendChild(thirdLogContent);
+
+main.appendChild(firstLogSection);
+main.appendChild(secondLogSection);
+main.appendChild(thirdLogSection);
+
+//20260406の学習記録の表示非表示
+toggleLog(firstToggleButton,firstLogContent,firstLogSection);
+//20260413の学習記録の表示非表示
+toggleLog(secondToggleButton,secondLogContent,secondLogSection);
+//20260420の学習記録の表示非表示
+toggleLog(thirdToggleButton,thirdLogContent,thirdLogSection);
+
+//すべての学習記録を取得
+const logEntries = document.querySelectorAll(".log-entry");
+
+//最新の学習記録を取得
+const latestLog = logEntries[logEntries.length-1];
+
+//すべての目次を取得
+const logLinkEntries = document.querySelectorAll(".log-index-link");
+
+//最新の目次を取得
+const latestLogLink = logLinkEntries[logLinkEntries.length-1];
 
 //最新の学習記録を強調
 latestLog.classList.add("latest-log");
@@ -343,36 +619,11 @@ latestLog.classList.add("latest-log");
 //最新の目次を強調
 latestLogLink.classList.add("latest-log-link");
 
-//HTML組み立て
-//header
-header.appendChild(title);
-header.appendChild(button);
-section.appendChild(header);
+//2026-04-06目次クリック
+indexLink(indexLink20260406,firstLogContent,firstToggleButton);
+//2026-04-13目次クリック
+indexLink(indexLink20260413,secondLogContent,secondToggleButton);
+//2026-04-20目次クリック
+indexLink(indexLink20260420,thirdLogContent,thirdToggleButton);
 
-//1週目やったこと
-firstLogSectionBox.appendChild(firstLogDone);
-firstLogContent.appendChild(firstLogDoneTitle);
-firstLogContent.appendChild(firstLogSectionBox);
-section.appendChild(firstLogContent);
-
-//1週目学んだこと
-firstLogLearnedSectionBox.appendChild(firstLogLearned);
-firstLogContent.appendChild(firstLogLearnedTitle);
-firstLogContent.appendChild(firstLogLearnedSectionBox);
-section.appendChild(firstLogContent);
-
-//1週目次にやること
-firstLogNextSectionBox.appendChild(firstLogNext);
-firstLogContent.appendChild(firstLogNextTitle);
-firstLogContent.appendChild(firstLogNextSectionBox);
-section.appendChild(firstLogContent);
-
-//1週目メモ
-firstLogMemoSectionBox.appendChild(firstLogMemo);
-firstLogContent.appendChild(firstLogMemoTitle);
-firstLogContent.appendChild(firstLogMemoSectionBox);
-section.appendChild(firstLogContent);
-
-main.insertBefore(section,secondSection);
-
-console.log(section);
+console.log(firstLogSection);
