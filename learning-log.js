@@ -487,23 +487,34 @@ function createWeeklyLog(logData){
   }
 }
 
-const firstLog = createWeeklyLog(weeklyLog20260406);
-const secondLog = createWeeklyLog(weeklyLog20260413);
-const thirdLog = createWeeklyLog(weeklyLog20260420);
+// const firstLog = createWeeklyLog(weeklyLogs[0]);
+// const secondLog = createWeeklyLog(weeklyLogs[1]);
+// const thirdLog = createWeeklyLog(weeklyLogs[2]);
+
+// const logs = [
+//   firstLog,
+//   secondLog,
+//   thirdLog
+// ];
+
+//学習記録データ → 画面表示用の要素セット
+const logs = weeklyLogs.map(logData => createWeeklyLog(logData));
 
 //学習記録のボタン
-const toggleLogButtons = [
-  firstLog.button,
-  secondLog.button,
-  thirdLog.button
-];
+const toggleLogButtons = logs.map(log => log.button);
+// const toggleLogButtons = [
+//   firstLog.button,
+//   secondLog.button,
+//   thirdLog.button
+// ];
 
 //学習記録のコンテンツ
-const logContents = [
-  firstLog.content,
-  secondLog.content,
-  thirdLog.content
-];
+const logContents = logs.map(log => log.content);
+// const logContents = [
+//   firstLog.content,
+//   secondLog.content,
+//   thirdLog.content
+// ];
 
 //リスト表示
 function setListItems(target,list){
@@ -520,20 +531,20 @@ function setText(target,element){
 };
 
 //複数週の学習記録表示
-function renderWeeklyLogs(elements, weeklyLogs){
-  for (let i = 0; i < weeklyLogs.length; i++){
-      //タイトルをセット
-      setText(elements[i].date, weeklyLogs[i].date + "の学習記録");  
-      //やったことをセット
-      setListItems(elements[i].done, weeklyLogs[i].done);
-      //学んだことをセット
-      setListItems(elements[i].learned, weeklyLogs[i].learned);
-      //次にやることをセット
-      setListItems(elements[i].next, weeklyLogs[i].next);
-      //メモをセット
-      setText(elements[i].memo, weeklyLogs[i].memo);  
-  }
-};
+// function renderWeeklyLogs(elements, weeklyLogs){
+//   for (let i = 0; i < weeklyLogs.length; i++){
+//       //タイトルをセット
+//       setText(elements[i].date, weeklyLogs[i].date + "の学習記録");  
+//       //やったことをセット
+//       setListItems(elements[i].done, weeklyLogs[i].done);
+//       //学んだことをセット
+//       setListItems(elements[i].learned, weeklyLogs[i].learned);
+//       //次にやることをセット
+//       setListItems(elements[i].next, weeklyLogs[i].next);
+//       //メモをセット
+//       setText(elements[i].memo, weeklyLogs[i].memo);  
+//   }
+// };
 
 //学習記録をセット
 //renderWeeklyLogs(weeklyLogElements,weeklyLogs);
@@ -712,16 +723,21 @@ function indexLink(indexLink,logContent,button){
 // thirdLogContent.appendChild(thirdLogMemoSectionBox);
 // thirdLogSection.appendChild(thirdLogContent);
 
-main.appendChild(firstLog.section);
-main.appendChild(secondLog.section);
-main.appendChild(thirdLog.section);
+logs.forEach(log =>{
+  main.appendChild(log.section);
+  toggleLog(log.button, log.content, log.section);
+});
+
+// main.appendChild(firstLog.section);
+// main.appendChild(secondLog.section);
+// main.appendChild(thirdLog.section);
 
 //20260406の学習記録の表示非表示
-toggleLog(firstLog.button,firstLog.content,firstLog.section);
+// toggleLog(firstLog.button,firstLog.content,firstLog.section);
 //20260413の学習記録の表示非表示
-toggleLog(secondLog.button,secondLog.content,secondLog.section);
+// toggleLog(secondLog.button,secondLog.content,secondLog.section);
 //20260420の学習記録の表示非表示
-toggleLog(thirdLog.button,thirdLog.content,thirdLog.section);
+// toggleLog(thirdLog.button,thirdLog.content,thirdLog.section);
 
 //すべての学習記録を取得
 const logEntries = document.querySelectorAll(".log-entry");
@@ -741,9 +757,21 @@ latestLog.classList.add("latest-log");
 //最新の目次を強調
 latestLogLink.classList.add("latest-log-link");
 
+//目次リンク
+const indexLinks = [
+  indexLink20260406,
+  indexLink20260413,
+  indexLink20260420
+]
+
+//目次クリック
+indexLinks.forEach((link,i) => {
+  indexLink(link,logs[i].content, logs[i].button);
+});
+
 //2026-04-06目次クリック
-indexLink(indexLink20260406,firstLog.content,firstLog.button);
+// indexLink(indexLink20260406,firstLog.content,firstLog.button);
 //2026-04-13目次クリック
-indexLink(indexLink20260413,secondLog.content,secondLog.button);
+// indexLink(indexLink20260413,secondLog.content,secondLog.button);
 //2026-04-20目次クリック
-indexLink(indexLink20260420,thirdLog.content,thirdLog.button);
+// indexLink(indexLink20260420,thirdLog.content,thirdLog.button);
