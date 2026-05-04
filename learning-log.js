@@ -7,6 +7,8 @@ const indexLink20260406 = document.getElementById("index-link-2026-04-06");
 const indexLink20260413 = document.getElementById("index-link-2026-04-13");
 //20260420学習記録の目次リンク
 const indexLink20260420 = document.getElementById("index-link-2026-04-20");
+//20260420学習記録の目次リンク
+const indexLink20260427 = document.getElementById("index-link-2026-04-27");
 
 //1週目の学習記録
 const weeklyLog20260406 = {
@@ -35,11 +37,21 @@ const weeklyLog20260420 = {
   memo:"見た目を整えるだけでなくデータの持ち方とその表示まで考えられた"
 }
 
+//4週目の学習記録
+const weeklyLog20260427 = {
+  date: "2026-04-27",
+  done: ["3週目の学習記録の追加","個別開閉・一括開閉・目次リンクの関数化","学習記録のHTMLをJS生成に移行"] ,
+  learned: ["console.logでのエラー確認と修正","変数のスコープ","mapでデータを変換し、forEachで順番に処理する流れ"],
+  next:["共通化できる処理をまとめる","古いコードの整理","目次リンクをJSで生成する"],
+  memo:"コードを『動く』だけでなく『整理して拡張しやすくする』視点で見られるようになってきた"
+}
+
 //学習記録
 const weeklyLogs = [
   weeklyLog20260406,
   weeklyLog20260413,
-  weeklyLog20260420
+  weeklyLog20260420,
+  weeklyLog20260427
 ];
 
 //main
@@ -250,13 +262,13 @@ function toggleAll(buttons, contents){
 toggleAll(toggleButtons,contents);
 
 //目次クリック
-function setupIndexLink(indexLink, content, button){
+function setupIndexLink(indexLink, content, button, contents){
   indexLink.addEventListener("click", function(){
     if(content.classList.contains("hidden")){
       content.classList.remove("hidden");
       button.textContent = "閉じる";
     }
-    updateToggleAllButtonText(content);
+    updateToggleAllButtonText(contents);
   });
 }
 
@@ -289,10 +301,11 @@ latestLogLink.classList.add("latest-log-link");
 const indexLinks = [
   indexLink20260406,
   indexLink20260413,
-  indexLink20260420
+  indexLink20260420,
+  indexLink20260427
 ];
 
 //目次クリック
 indexLinks.forEach((link, i) => {
-  setupIndexLink(link, logs[i].content, logs[i].button);
+  setupIndexLink(link, logs[i].content, logs[i].button,contents);
 });
