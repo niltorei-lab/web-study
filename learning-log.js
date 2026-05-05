@@ -1,14 +1,8 @@
 //学習記録の開閉ボタン
 const toggleAllButton = document.getElementById("toggle-all-button");
 
-//20260406学習記録の目次リンク
-const indexLink20260406 = document.getElementById("index-link-2026-04-06");
-//20260413学習記録の目次リンク
-const indexLink20260413 = document.getElementById("index-link-2026-04-13");
-//20260420学習記録の目次リンク
-const indexLink20260420 = document.getElementById("index-link-2026-04-20");
-//20260420学習記録の目次リンク
-const indexLink20260427 = document.getElementById("index-link-2026-04-27");
+//目次リンク
+const logIndexList = document.getElementById("logIndexList");
 
 //1週目の学習記録
 const weeklyLog20260406 = {
@@ -176,8 +170,30 @@ function createWeeklyLog(logData){
   }
 }
 
+//目次リンクのHTMLの要素の作成
+function createIndexLink(logData){
+  const dateKey = logData.date.replaceAll("-", "");
+
+  const indexItem = document.createElement("li");
+
+  const indexLink = document.createElement("a");
+  indexLink.classList.add("log-index-link");
+  indexLink.id = "index-link" + dateKey;
+  indexLink.href = "#logSection" + dateKey;
+  indexLink.textContent = logData.date + "の学習記録";
+
+  //HTMLの組み立て
+  indexItem.appendChild(indexLink);
+  logIndexList.appendChild(indexItem);
+  
+  return indexLink;
+}
+
 //学習記録データ → 画面表示用の要素セット
 const logs = weeklyLogs.map(logData => createWeeklyLog(logData));
+
+//目次リンク⇒画面表示用の要素にセット
+const indexLinks = weeklyLogs.map(logData => createIndexLink(logData));
 
 //学習記録のボタン
 const toggleButtons = logs.map(log => log.button);
@@ -272,7 +288,6 @@ function setupIndexLink(indexLink, content, button, contents){
   });
 }
 
-
 //学習記録のHTML組み立て
 logs.forEach(log => {
   main.appendChild(log.section);
@@ -296,14 +311,6 @@ latestLog.classList.add("latest-log");
 
 //最新の目次を強調
 latestLogLink.classList.add("latest-log-link");
-
-//目次リンク
-const indexLinks = [
-  indexLink20260406,
-  indexLink20260413,
-  indexLink20260420,
-  indexLink20260427
-];
 
 //目次クリック
 indexLinks.forEach((link, i) => {
