@@ -4,50 +4,6 @@ const toggleAllButton = document.getElementById("toggle-all-button");
 //目次リンク
 const logIndexList = document.getElementById("logIndexList");
 
-//1週目の学習記録
-const weeklyLog20260406 = {
-  date: "2026-04-06",
-  done: ["HTML/CSS/JavaScriptの復習","自己紹介ページの調整","GitHubへのPush"] ,
-  learned: ["小さい修正でも見た目は大きく変わる","CSSの余白はどこで管理するかが大事","レスポンシブ対応では自然さを優先する"],
-  next:["学習記録のページの見た目を整える","必要な項目を少しずつ追加する"],
-  memo:"小さく作って、使いながら育てていく"
-};
-
-//2週目の学習記録
-const weeklyLog20260413 = {
-  date: "2026-04-13",
-  done: ["learning-log.htmlの作成","index.htmlとのリンク追加","ボタンデザインの追加"] ,
-  learned: ["ページ同士をリンクでつなげられる","静的ページでも少しずつ育てていける","共通のCSSを使うと見た目をそろえやすい"],
-  next:["学習ログを増やす形に変える","表示・非表示の機能を考える"],
-  memo:"まずは記録を増やせる形を作ることを優先する"
-};
-
-//3週目の学習記録
-const weeklyLog20260420 = {
-  date: "2026-04-20",
-  done: ["最新の学習記録と目次の自動強調","開閉ボタンの押下時スクロール処理","学習記録をJSデータから画面に表示"] ,
-  learned: ["役割ごとに動きを設定する","JavaScriptのオブジェクトと配列の違い","個別に処理⇒関数化"],
-  next:["週ごとの表示記録をさらにまとめる","3週目の学習記録を追加する"],
-  memo:"見た目を整えるだけでなくデータの持ち方とその表示まで考えられた"
-}
-
-//4週目の学習記録
-const weeklyLog20260427 = {
-  date: "2026-04-27",
-  done: ["3週目の学習記録の追加","個別開閉・一括開閉・目次リンクの関数化","学習記録のHTMLをJS生成に移行"] ,
-  learned: ["console.logでのエラー確認と修正","変数のスコープ","mapでデータを変換し、forEachで順番に処理する流れ"],
-  next:["共通化できる処理をまとめる","古いコードの整理","目次リンクをJSで生成する"],
-  memo:"コードを『動く』だけでなく『整理して拡張しやすくする』視点で見られるようになってきた"
-}
-
-//学習記録
-const weeklyLogs = [
-  weeklyLog20260406,
-  weeklyLog20260413,
-  weeklyLog20260420,
-  weeklyLog20260427
-];
-
 //main
 const main = document.querySelector("main");
 
