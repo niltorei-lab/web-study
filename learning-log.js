@@ -1,3 +1,28 @@
+//学習記録入力フォーム
+const logDateInput = document.getElementById("log-date");
+const logMemoInput = document.getElementById("log-memo");
+const addLogButoon = document.getElementById("add-log-button");
+
+addLogButoon.addEventListener("click", function(){
+
+  //新しい学習記録
+  const newLogData = {
+    date: logDateInput.value,
+    done: [],
+    learned: [],
+    next: [],
+    memo: logMemoInput.value
+  };
+  
+  //学習記録の追加
+  weeklyLogs.push(newLogData);
+
+  //HTML要素の作成
+  const newLog = createWeeklyLog(newLogData);
+  //画面に追加
+  main.appendChild(newLog.section);
+});
+
 //学習記録の開閉ボタン
 const toggleAllButton = document.getElementById("toggle-all-button");
 
