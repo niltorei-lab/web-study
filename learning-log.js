@@ -21,6 +21,28 @@ addLogButoon.addEventListener("click", function(){
   const newLog = createWeeklyLog(newLogData);
   //画面に追加
   main.appendChild(newLog.section);
+
+  //新しい学習記録の表示字非表示
+  toggleLog(newLog.button, newLog.content, newLog.section);
+  //新しい学習記録のボタンを追加
+  toggleButtons.push(newLog.button);
+  //新しい学習記録のcontntと追加
+  contents.push(newLog.content);
+
+  //新しい学習記録の目次
+  const newIndex = createIndexLink(newLogData);
+  //新しい学習記録の目次を追加
+  setupIndexLink(newIndex);
+  
+  //ひとつ前の記録の強調を外す
+  latestLog.classList.remove("latest-log");
+  //ひとつ前の記録の目次の強調を外す
+  latestLogLink.classList.remove("latest-log-link");
+  //新しい学習記録を強調する
+  newLog.section.classList.add("latest-log");
+  //新しい学習記録の目次を強調する
+  newIndex.classList.add("latest-log-link");
+
 });
 
 //学習記録の開閉ボタン
