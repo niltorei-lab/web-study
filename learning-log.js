@@ -34,14 +34,8 @@ addLogButoon.addEventListener("click", function(){
   //新しい学習記録の目次を追加
   setupIndexLink(newIndex);
   
-  //ひとつ前の記録の強調を外す
-  latestLog.classList.remove("latest-log");
-  //ひとつ前の記録の目次の強調を外す
-  latestLogLink.classList.remove("latest-log-link");
-  //新しい学習記録を強調する
-  newLog.section.classList.add("latest-log");
-  //新しい学習記録の目次を強調する
-  newIndex.classList.add("latest-log-link");
+  //最新の学習記録を強調
+  updateLatestLogHighlight(logs,indexLinks);
 
 });
 
@@ -297,23 +291,38 @@ logs.forEach(log => {
   toggleLog(log.button, log.content, log.section);
 });
 
-//すべての学習記録を取得
-const logEntries = document.querySelectorAll(".log-entry");
+//最新の学習記録の強調関数
+function updateLatestLogHighlight(logs, indexLinks){
+  //すべての学習記録を取得
+  const logEntries = document.querySelectorAll(".log-entry");
+  
+  //最新の学習記録を取得
+  const latestLog = logEntries[logEntries.length-1];
+  
+  //すべての目次を取得
+  const logLinkEntries = document.querySelectorAll(".log-index-link");
+  
+  //最新の目次を取得
+  const latestLogLink = logLinkEntries[logLinkEntries.length-1];
 
-//最新の学習記録を取得
-const latestLog = logEntries[logEntries.length-1];
-
-//すべての目次を取得
-const logLinkEntries = document.querySelectorAll(".log-index-link");
-
-//最新の目次を取得
-const latestLogLink = logLinkEntries[logLinkEntries.length-1];
+  //すべての記録の強調を外す
+  for (let i = 0; i < logEntries.length; i++) {
+    logEntries[i].classList.remove("latest-log");
+  };
+  //すべの目次の強調を外す
+  for(let i = 0; i < logLinkEntries.length; i++){
+    //すべての記録の目次の強調を外す
+    logLinkEntries[i].classList.remove("latest-log-link");
+  };
+  //最新の学習記録を強調
+  latestLog.classList.add("latest-log");
+  
+  //最新の目次を強調
+  latestLogLink.classList.add("latest-log-link");
+};
 
 //最新の学習記録を強調
-latestLog.classList.add("latest-log");
-
-//最新の目次を強調
-latestLogLink.classList.add("latest-log-link");
+updateLatestLogHighlight(logs, indexLinks);
 
 //目次クリック
 indexLinks.forEach((link, i) => {
