@@ -21,24 +21,34 @@
             <h2 class="section-title">記録を追加</h2>
             <div class="section-box">
               <div class="log-form">
-                <label id="form-field">
-                  日付
-                  <input type="date" id="log-date">
-                </label>
-              
-                <label class="form-field form-field-memo">
-                  メモ
-                  <textarea id="log-memo"></textarea>
-                </label>
-              <button class="action-button add-log-button" id="add-log-button">記録を追加</button>
-            </div>
+                <div class="form-row">
+                  <label class="form-field">
+                    <span>日付</span>
+                    <input type="date" id="log-date">
+                  </label>
+                  
+                  <label class="form-field">
+                    <span>今週やったこと</span>
+                    <input type="text" id="log-done">
+                  </label>
+                </div>
+
+                <div class="form-row">
+                  <label class="form-field form-field-memo">
+                    <span>メモ</span>
+                    <textarea id="log-memo"></textarea>
+                  </label>
+
+                  <button class="action-button add-log-button" id="add-log-button">記録を追加</button>
+                </div>              
               </div>
+            </div>
           </section>
 
           <section class="log-index">
             <h2 class="section-title">目次</h2>
             <div>
-              <ul ul id="logIndexList">
+              <ul id="logIndexList">
               </ul>
             </div>
           </section>
