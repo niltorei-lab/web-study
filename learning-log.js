@@ -1,5 +1,6 @@
 //学習記録入力フォーム
 const logDateInput = document.getElementById("log-date");
+const logDoneInput = document.getElementById("log-done");
 const logMemoInput = document.getElementById("log-memo");
 const addLogButoon = document.getElementById("add-log-button");
 
@@ -8,7 +9,7 @@ addLogButoon.addEventListener("click", function(){
   //新しい学習記録
   const newLogData = {
     date: logDateInput.value,
-    done: [],
+    done: [logDoneInput.value.split("\n")],
     learned: [],
     next: [],
     memo: logMemoInput.value
@@ -32,7 +33,7 @@ addLogButoon.addEventListener("click", function(){
   //新しい学習記録の目次
   const newIndex = createIndexLink(newLogData);
   //新しい学習記録の目次を追加
-  setupIndexLink(newIndex);
+  setupIndexLink(newIndex,newLog.content,newLog.button,contents);
   
   //最新の学習記録を強調
   updateLatestLogHighlight(logs,indexLinks);

@@ -482,15 +482,17 @@
   
   .form-row {
     display: flex;
-    align-items: center;
-    gap: 8px;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
   }
   
   /* 入力項目 */
   .form-field {
     display: flex;
-    align-items: center;
-    gap: 8px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
   }
 
   .form-field span {
@@ -506,7 +508,8 @@
   /* 日付入力欄 */
   .form-field input,
   .form-field textarea {
-    width: 280px;
+    width: 100%;
+    max-width: 520px;
     height: 40px;
     padding: 6px 10px;
     font-size: 16px;
@@ -514,14 +517,15 @@
   }
   
   /* メモ入力欄 */
-  .form-field-memo textarea {    
-    width: 280px;
+  .form-field-memo textarea,
+  .form-field-done textarea {    
+    height: 80px;
     box-sizing: border-box;
   }
-  
+
   /* 記録追加ボタン */
   .add-log-button {
-    width: 120px;
+    width: 160px;
     height: 40px;
     padding: 8px 16px;
   }
