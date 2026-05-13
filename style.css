@@ -518,7 +518,9 @@
   
   /* メモ入力欄 */
   .form-field-memo textarea,
-  .form-field-done textarea {    
+  .form-field-done textarea,
+  .form-field-learned textarea,
+  .form-field-next textarea {    
     height: 80px;
     box-sizing: border-box;
   }
